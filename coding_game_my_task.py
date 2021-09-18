@@ -1,0 +1,2 @@
+# print(' '.join(filter(None, [''.join([y for y in x if (ord(y)%2==0) == (i%2==0)]) for i,x in enumerate(input().split(), 2)])))
+print(' '.join(filter(None, [''.join([y for y in x if (ord(y)%2==0) == (i%2==0) or not y.isalpha()]) for i,x in enumerate([i for i in input().split() if any(map(str.isalpha, i))], 2) ])))

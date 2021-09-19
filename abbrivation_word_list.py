@@ -3,7 +3,7 @@ In a list of words, there is ONE (word) that consists of first letters for the r
 Find the word that matches the criteria described above and re-print the list (minus the abbrivation word)
 in format described below
 
---------example 1--++
+--------example 1--+++
 5
 Best
 Brilliant
@@ -18,7 +18,7 @@ E: Excellent
 S: Super
 T: Terrific
 
-------------test 2--
+------------test 2-- +
 
 8
 Amazing

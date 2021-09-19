@@ -1,4 +1,5 @@
 """
+bla-bla
 I want to construct a tower of height H by stacking blocks in a straight line going upwards.
 
 However I only have two types of blocks: blocks of height P and blocks of height Q, with P ≤ Q.

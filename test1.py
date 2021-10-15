@@ -1,6 +1,60 @@
-def hello_world():
-    print(some_message)
+# user_age = int(input("Enter your age: "))
+# if user_age < 18:
+#     print("You are minor. Please leave....")
+# else:
+#     print("Welcome!!")
 
-some_message = "asdf"
+# taks 2 . option1
+# entered = input()
+# if entered == "":
+#     print("You did not entered anything. Try again")
+# else:
+#     print("Data eccepted")
 
-hello_world()
+# taks 2 . option2
+# print("Empty") if input()=="" else print("something")
+
+# count = 1
+# while count == 1:
+#     print("Infinite loop")
+#     user_choice = input("Enter magic number to quit")
+#     if user_choice == "18":
+#         count = 2
+
+# def myfunction123():
+#     username = input("Enter your name>> ")
+#     print(f"Hello {username}")
+#
+# myfunction123()
+#
+
+# def greet(x,y):
+#     print("Welcome Mr.", x, "Your age is:", y)
+#
+# greet("Roman", 38)
+
+# def add_func(x, y):
+#     return x + y
+#
+# def sub_func(x, y):
+#     return x - y
+#
+# a = int(input("Enter number 1: "))
+# b = int(input("Enter number 2: "))
+# print("The result of addition is: ", add_func(a, b))
+# print("The result of substruction is: ", sub_func(a, b))
+
+# def the_func(a, b):
+#     print(a + b)
+#
+# the_var = the_func(5 ,6)
+# print(the_var)
+
+
+
+
+
+
+
+
+

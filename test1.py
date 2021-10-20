@@ -50,7 +50,23 @@
 # the_var = the_func(5 ,6)
 # print(the_var)
 
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 
+class SimpleWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setupWindowItems()
+
+    def setupWindowItems(self):
+        self.setGeometry(0, 0, 500, 500)
+        self.pushButton = QPushButton("Guess Number")
+        self.pushButton.move(100, 100)
+
+if __name__ == "__main__":
+    myapp = QApplication([])
+    my_window = SimpleWindow()
+    my_window.show()
+    myapp.exec()
 
 
 

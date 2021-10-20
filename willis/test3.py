@@ -36,3 +36,28 @@
 # else:
 #     print("You were added to the list, " + new_name)
 
+
+# temp_list = []
+# while True:
+#     user_input = input("Enter the word (OR 'no' to exit)>> ")
+#     temp_list.append(user_input) if not user_input == "no" else temp_list.append("1")
+
+# temp_list = []
+# while True:
+#     user_input = input("Enter the word (OR 'no' to exit)>> ")
+#     if not user_input == "no":
+#         temp_list.append(user_input)
+#     else:
+#         print(*temp_list)
+#         break
+
+# my_int = 5
+# my_list = [1,2,3]
+#
+# def func(input_int, input_list):
+#     input_int = 10
+#     input_list[0] = 100
+#
+# func(my_int, my_list)
+# print(my_int)
+# print(my_list)

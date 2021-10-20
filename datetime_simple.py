@@ -2,6 +2,7 @@ import datetime
 
 
 
+
 n = int(input())
 for i in range(n):
     b, d = input().split(" ")

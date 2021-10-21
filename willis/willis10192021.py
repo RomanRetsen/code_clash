@@ -93,8 +93,8 @@ if __name__ == "__main__":
         while True:
             print("*" * 100)
             item = input(f"Enter {items_count}(st/d) item in format: \"Item_name Qty Rate\" (space separated). (item name with NO spaces)\n"
-                         f"OR 'exit' to exit \n"
-                         f"OR .nomoreites to finish entering items\n").split(" ")
+                         f"OR '.exit' to exit \n"
+                         f"OR .nomoreitems to finish entering items\n").split(" ")
             print("*" * 100)
             if item[0] == ".exit":
                 the_exit = 1

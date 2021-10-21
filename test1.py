@@ -69,6 +69,11 @@ if __name__ == "__main__":
     myapp.exec()
 
 
+my_var = None
+
+if my_var and len(my_var) > 0:
+    print("this is not empty string")
+
 
 
 

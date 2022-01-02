@@ -149,7 +149,6 @@ if __name__ == "__main__":
     g.add_vertex("d")
     g.add_vertex("e")
     g.add_vertex("f")
-
     g.add_edge("a", "b", 7)
     g.add_edge("a", "c", 9)
     g.add_edge("a", "f", 14)
@@ -159,21 +158,15 @@ if __name__ == "__main__":
     g.add_edge("c", "f", 2)
     g.add_edge("d", "e", 6)
     g.add_edge("e", "f", 9)
-
-
     print("Graph Data: ")
     for node in g:
         for neighbor in node.get_connections():
             node_id = node.get_id()
             # neighbor_id = neighbor.get_id()
             print("(%s, %s, %3d)" %(node_id, neighbor, node.get_weight(neighbor)))
-
     dijkstra(g, g.get_vertex("a"), g.get_vertex("e"))
     target = g.get_vertex("e")
     path = [target.get_id()]
     shortest(target, path)
     print("Shortest path: %s" %(path[::-1]))
 """
-
-
-

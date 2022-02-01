@@ -3,8 +3,15 @@ size_of_maze = 7
 def print_solution(solution_matrix):
     for i in range(size_of_maze):
         for y in range(size_of_maze):
-            print(solution_matrix[i][y], end=" ")
-        print()
+            sm_to_int = int(solution_matrix[i][y])
+            if sm_to_int == 0:
+                print("\033[1;37;40m0", end=" ")
+            elif sm_to_int == 1:
+                print("\033[1;37;46m1", end=" ")
+            elif sm_to_int == 2:
+                print("\033[1;37;41m1", end=" ")
+
+        print("\033[1;37;47m")
 
 def is_valid(maze_matrix, x, y):
     if x >= 0 and y >= 0 and x < size_of_maze and y < size_of_maze and maze_matrix[x][y] == 1:
@@ -44,7 +51,7 @@ def make_step(maze_matrix, pos_x, pos_y, solution_matrix):
             return True
 
         # print(f'Backtracking x {pos_x}- y {pos_y}')
-        solution_matrix[pos_x][pos_y] = 0
+        solution_matrix[pos_x][pos_y] = 2
         return False
 
 

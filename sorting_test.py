@@ -51,6 +51,19 @@ t3 = time.time()
 print(f'insert sorting operation counter {insert_operation_counter}. time spent {t3-t2}')
 print(list_for_insert_sort)
 
+#insertion sorting version2
+def insert_sort_v2(in_list):
+    for i in range(1, len(in_list)):
+        temp = in_list[i]
+        place_index = i
+        for y in range(i, 0, -1):
+            if in_list[y-1] > temp:
+                in_list[y] = in_list[y-1]
+                place_index = y-1
+            else:
+                break
+        in_list[place_index] = temp
+
 #selection sort
 def select_sort(input_list):
     for i in range(len(input_list)):

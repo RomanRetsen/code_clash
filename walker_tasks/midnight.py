@@ -1,3 +1,20 @@
+"""
+Lords of Midnight
+def midnight(dice):
+Midnight is a dice game where the player initially rolls six dice, and must decide which dice to keep
+and which to re-roll to maximize his inal score. However, all your hard work with the previous
+problems has now mysteriously rewarded you with the gift of perfect foresight (as some wily
+Frenchman might say, you might unknowingly be a descendant of Madame de Th bes) that allows
+you to foresee what pip values each individual die will produce in its entire sequence of future rolls,
+expressed as a sequence such as [2, 5, 5, 1, 6, 3]. Aided with this foresight, your task is to
+return the maximum total score that could be achieved with the given dice rolls.
+The argument dice is a list whose each element is a sequence of the pip values that particular die
+will produce when rolled. (Since this game will necessarily end after at most six rolls, this given
+future sequence needs to be only six elements long.) Note that the rules require you to keep at least
+one die in each roll, which is why the trivial algorithm “First choose the two dice you use to get the 1
+and 4, and add up the maximum pip values for the four remaining dice” does not work, as
+demonstrated by the irst row of the following table. DUCY?
+"""
 from itertools import product
 
 def not_skipped(the_combination):

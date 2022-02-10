@@ -19,14 +19,31 @@ those halves. The parameter out determines whether this function performs an out
 shuf le that determines which half of the deck the alternating card is irst taken from.
 '''
 
-def riffle(items, out=True):
-    if out:
-        return [x for y in zip(items[:len(items)//2], items[len(items)//2:]) for x in y]
-    else:
-        return [x for y in zip( items[len(items)//2:], items[:len(items)//2]) for x in y]
+from itertools import chain
 
-print(riffle([1, 2, 3, 4, 5, 6, 7, 8], out=True))
-print(riffle([1, 2, 3, 4, 5, 6, 7, 8], out=False))
-print(riffle([], out=True))
-print(riffle(['bob', 'jack'], out=False))
+# def riffle_succinct(items, out=True):
+#     if out:
+#         return [x for y in zip(items[:len(items)//2], items[len(items)//2:]) for x in y]
+#     else:
+#         return [x for y in zip( items[len(items)//2:], items[:len(items)//2]) for x in y]
+
+def riffle_simple(items, out=True):
+    return_list = []
+    if out:
+        first_half = items[:len(items)//2]
+        second_half = items[len(items)//2:]
+    else:
+        first_half = items[len(items)//2:]
+        second_half = items[:len(items)//2]
+
+    for pair in zip(first_half, second_half):
+        return_list.append(pair[0])
+        return_list.append(pair[1])
+    return return_list
+
+print(riffle_simple([1, 2, 3, 4, 5, 6, 7, 8], out=True))
+print(riffle_simple([1, 2, 3, 4, 5, 6, 7, 8], out=False))
+print(riffle_simple([], out=True))
+print(riffle_simple(['bob', 'jack'], out=True))
+print(riffle_simple(['bob', 'jack'], out=False))
 

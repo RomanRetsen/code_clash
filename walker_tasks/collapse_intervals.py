@@ -16,6 +16,8 @@ not have a silly redundant comma hanging at the end.
 '''
 def collapse_intervals(items):
     return_list = []
+    if not len(items):
+        return ""
     start = current = items[0]
     for number in items[1:]:
         if number - current == 1:
@@ -37,5 +39,6 @@ def collapse_intervals(items):
 # the_list = [1, 2, 4, 6, 7, 8, 9, 10, 12, 13] # 1-2,4,6-10,12-13
 # the_list = range(1,1000001) # 1-1000000
 # the_list = [42] # 42
-the_list = [3, 5, 6, 7, 9, 11, 12, 13] # 3,5-7,9,11-13
+# the_list = [3, 5, 6, 7, 9, 11, 12, 13] # 3,5-7,9,11-13
+the_list = []
 print(collapse_intervals(the_list))

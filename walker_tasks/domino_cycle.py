@@ -16,21 +16,25 @@ tiles Expected result
 
 '''
 
-n = int(input())
 
-head = tail = None
-for i in range(n):
-    x,y = [int(x) for x in input().split()]
-    if head is not None and tail is not None and not tail == x:
-        print("False")
-        break
-    elif head is None and tail is None:
-        head = x
-        tail = y
+def domino_cycle(tiles):
+    head = tail = None
+    for i in tiles:
+        x, y =  i
+        if head is not None and tail is not None and not tail == x:
+            return "False"
+            break
+        elif head is None and tail is None:
+            head = x
+            tail = y
+        else:
+            tail = y
     else:
-        tail = y
-else:
-    if head == tail:
-        print('True')
-    else:
-        print("False")
+        if head == tail:
+            return 'True'
+        else:
+            return "False"
+
+
+domino_titles= [(3, 5), (5, 2), (2, 3)]
+print(domino_cycle(domino_titles))

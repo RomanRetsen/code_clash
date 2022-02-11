@@ -27,17 +27,25 @@ colours Expected result
 (Today's ive-dollar power word to astonish your friends and coworkers is "quasigroup".)
 '''
 
-color = input()
-mixin = {frozenset("ry"):"b", frozenset("by"):"r", frozenset("br"):"y",
-         frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
-         frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
-         }
-new_color = []
-while len(color) > 1:
-    for i in range(0, len(color)-1):
-        new_color.append(mixin[frozenset(color[i:i+2])])
-    color = "".join(new_color)
-    new_color.clear()
-else:
-    print(color)
 
+def colour_trio(color):
+    mixin = {frozenset("ry"):"b", frozenset("by"):"r", frozenset("br"):"y",
+             frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
+             frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
+             }
+    new_color = []
+    while len(color) > 1:
+        for i in range(0, len(color)-1):
+            new_color.append(mixin[frozenset(color[i:i+2])])
+        color = "".join(new_color)
+        new_color.clear()
+    return color
+
+color = 'yrbbbbryyrybb' # b
+# color = 'rbyryrrbyrbb' # y
+# color = 'brybbr' # r
+# color = 'rybyry' # r
+# color = 'bb' # b
+# color = 'y' # y
+
+print(colour_trio(color))

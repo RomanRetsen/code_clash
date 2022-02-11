@@ -18,14 +18,14 @@ n Expected result
 def only_odd_digits(n):
     while (new_n := n // 10) > 0:
         if n % 10 % 2 == 0:
-            print("False")
+            return "False"
             break
         n = new_n
     else:
         if n % 10 % 2 == 0:
-            print("False")
+            return "False"
         else:
-            print("True")
+            return "True"
 
 the_num = int(input())
-only_odd_digits(the_num)
+print(only_odd_digits(the_num))

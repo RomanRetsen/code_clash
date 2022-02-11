@@ -21,9 +21,14 @@ def count_dominators(items):
         if items_reversed[i] > current:
             current = items_reversed[i]
             counter += 1
-
     return counter
 
-items = [int(x) for x in input().split()]
+# items = [int(x) for x in input().split()]
 # items = range(10**7, 0, -1)
+# items = [99]
+# items = [42, 42, 42, 42]
+# items = []
+# items = [42, 7, 12, 9, 2, 5]
+# items = range(10**7)
+items = range(10**7, 0, -1)
 print(count_dominators(items))

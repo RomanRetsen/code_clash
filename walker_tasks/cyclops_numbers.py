@@ -26,30 +26,36 @@ practice these division and remainder operations are often further condensed int
 faster bit shift and bitwise and operations.)
 
 '''
-in_value = int(input())
 
-left_side = 0
-right_side = 0
-eye_passed = False
 
-while (new_value := in_value // 10) > 0:
-    tail = in_value % 10
-    if tail == 0 and eye_passed:
-        print("False")
-        break
-    elif tail == 0 and not eye_passed:
-        eye_passed = True
-    elif not tail == 0 and not eye_passed:
-        right_side += 1
-    elif not tail == 0 and eye_passed:
-        left_side += 1
-    in_value = new_value
-else:
-    if not in_value % 10 == 0:
-        left_side += 1
+def is_cyclops(in_value):
+    left_side = 0
+    right_side = 0
+    eye_passed = False
 
-    if left_side == right_side:
-        print("True")
+    while (new_value := in_value // 10) > 0:
+        tail = in_value % 10
+        if tail == 0 and eye_passed:
+            return "False"
+            break
+        elif tail == 0 and not eye_passed:
+            eye_passed = True
+        elif not tail == 0 and not eye_passed:
+            right_side += 1
+        elif not tail == 0 and eye_passed:
+            left_side += 1
+        in_value = new_value
     else:
-        print("False")
+        if not in_value % 10 == 0:
+            left_side += 1
+
+        if left_side == right_side:
+            return "True"
+        else:
+            return "False"
+
+
+in_value = int(input())
+print(is_cyclops(in_value))
+
 

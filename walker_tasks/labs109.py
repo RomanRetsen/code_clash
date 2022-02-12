@@ -134,7 +134,6 @@ def domino_cycle(tiles):
         else:
             return "False"
 
-
 def get_torch(in_list, side=None):
     s = 0
     if side == "right":
@@ -147,23 +146,122 @@ def get_torch(in_list, side=None):
         s = -1
     return s
 
-# the_list = [6, 1, 10, 5, 4]  # output 2
-# the_list = [10, 3, 3, 2, 1] # output 1
-# the_list = [7, 3, 4, 2, 9, 7, 4] # output -1
-# the_list = [randint(1, 200) for _ in range(10000)] # 10000 elements list takes 10 sec. to process
-the_list = [42]
 
-left_side_smaller = True
-start_point = 0
-while left_side_smaller and start_point <= len(the_list):
-    if get_torch(the_list[:start_point], side="left") == \
-            get_torch(the_list[start_point + 1:], side="right"):
-        print(start_point)
-        break
-    elif get_torch(the_list[:start_point], side="left") > \
-            get_torch(the_list[start_point + 1:], side="right"):
-        left_side_smaller = False
-    start_point += 1
-else:
-    print(-1)
+def get_torque(in_list, side=None):
+    s = 0
+    if side == "right":
+        for multiplier, value in enumerate(in_list, 1):
+            s += multiplier * value
+    elif side == "left":
+        for multiplier, value in enumerate(reversed(in_list), 1):
+            s += multiplier * value
+    else:
+        s = -1
+    return s
+
+def can_balance(items):
+    left_side_smaller = True
+    start_point = 0
+    while left_side_smaller and start_point <= len(items):
+        if get_torque(items[:start_point], side="left") == \
+                get_torque(items[start_point + 1:], side="right"):
+            return start_point
+        elif get_torque(items[:start_point], side="left") > \
+                get_torque(items[start_point + 1:], side="right"):
+            left_side_smaller = False
+        start_point += 1
+    else:
+        return -1
+
+# simple greedy version.
+def give_change(amount, coins):
+    r = []
+    for coin in coins:
+        n = amount // coin
+        amount -= n * coin
+        r.append([coin, ] * n)
+    return [ y for x in r for y in x if len(x) > 0]
+
+def riffle(items, out=True):
+    if out:
+        return [x for y in zip(items[:len(items)//2], items[len(items)//2:]) for x in y]
+    else:
+        return [x for y in zip( items[len(items)//2:], items[:len(items)//2]) for x in y]
+
+def is_cyclops(in_value):
+    left_side = 0
+    right_side = 0
+    eye_passed = False
+
+    while (new_value := in_value // 10) > 0:
+        tail = in_value % 10
+        if tail == 0 and eye_passed:
+            return "False"
+            break
+        elif tail == 0 and not eye_passed:
+            eye_passed = True
+        elif not tail == 0 and not eye_passed:
+            right_side += 1
+        elif not tail == 0 and eye_passed:
+            left_side += 1
+        in_value = new_value
+    else:
+        if not in_value % 10 == 0:
+            left_side += 1
+
+        if left_side == right_side:
+            return "True"
+        else:
+            return "False"
+
+def count_growlers(animals):
+    the_dict = {"cat":0, "dog":0, "tac":0, "god":0}
+    growling_count = 0
+
+    for animal in animals:
+        if (animal == "cat" or animal == "dog") and \
+                the_dict["cat"] + the_dict["tac"] < the_dict["dog"] + the_dict["god"]:
+            growling_count +=1
+        the_dict[animal] +=1
+
+    the_dict = {"cat":0, "dog":0, "tac":0, "god":0}
+
+    for animal in animals[::-1]:
+        if (animal == "tac" or animal == "god") and \
+                the_dict["cat"] + the_dict["tac"] < the_dict["dog"] + the_dict["god"]:
+            growling_count +=1
+        the_dict[animal] +=1
+
+    return growling_count
+
+def extract_increasing(digits):
+    current = int(digits[0])
+    result = [current,]
+    build = 0
+    build_string = []
+    for char in digits[1:]:
+        build_string.append(char)
+        build = int("".join(build_string))
+        if build > current:
+            result.append(build)
+            current = build
+            build = 0
+            build_string.clear()
+    return result
+
+def winning_card(cards, trump=None):
+    r = []
+    ranks = {'two': 2, 'three': 3, 'four': 4, 'five': 5,
+             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
+             'ten': 10, 'jack': 11, 'queen': 12, 'king': 13,
+             'ace': 14}
+    if not trump:
+        trump = cards[0][1]
+    for card in cards:
+        if card[1] == trump:
+            r.append((1, card[0], card[1]))
+        else:
+            r.append((0, card[0], card[1]))
+    # print(r)
+    return tuple(max(r, key=lambda x:(x[0], ranks[x[1]]))[1:])
 

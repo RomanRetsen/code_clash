@@ -1,4 +1,6 @@
 from itertools import product
+import operator
+from collections import deque
 
 def not_skipped(the_combination):
     the_steps = sorted([step_index[0] for step_index in the_combination])
@@ -248,6 +250,71 @@ def extract_increasing(digits):
             build = 0
             build_string.clear()
     return result
+
+def reverse_ascending_sublists(items):
+    if len(items) == 0:
+        return []
+    else:
+        result = []
+        temp = [items[0], ]
+        current = items[0]
+        for item in items[1:]:
+            if item > current:
+                temp.append(item)
+                current = item
+            else:
+                result.extend(reversed(temp))
+                temp.clear()
+                temp.append(item)
+                current = item
+        else:
+            if len(temp):
+                result.extend(reversed(temp))
+    return result
+
+def josephus(n, k):
+    return_sequence = []
+    # zealot_circle = deque(range(1, n + 1), maxlen=n)
+    zealot_circle = list(range(1, n + 1))
+    for i in range(n):
+        killed = (k - 1) % len(zealot_circle)
+        return_sequence.append(zealot_circle[killed])
+        left_side = zealot_circle[killed + 1:]
+        right_side = zealot_circle[:killed]
+        zealot_circle = left_side + right_side
+    return return_sequence
+
+def group_and_skip(n, out, ins):
+    return_list = []
+    while (leftover := (n // out ) * ins) > ins:
+        return_list.append(n % out)
+        n = leftover
+    else:
+        return_list.append(n % out)
+        if not leftover == 0:
+            return_list.append(leftover)
+    return return_list
+
+def postfix_evaluate(items):
+    operational_stack = []
+    operations = {"+":operator.add, "-":operator.sub, \
+                  "/":operator.floordiv, "*":operator.mul
+                  }
+    for item in items:
+        if item in operations:
+            operand_2 = operational_stack.pop()
+            operand_1 = operational_stack.pop()
+            if item == "/" and operand_2 == 0:
+                return 0
+            operational_stack.append(
+                operations[item](operand_1, operand_2)
+            )
+        elif str(item).isdigit():
+            operational_stack.append(item)
+    if len(operational_stack) == 1: # it could be only one left-over item in the list
+        return operational_stack[0]
+    else:
+        return 0
 
 def winning_card(cards, trump=None):
     r = []

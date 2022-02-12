@@ -134,7 +134,7 @@ def domino_cycle(tiles):
         else:
             return "False"
 
-def get_torch(in_list, side=None):
+def get_torque(in_list, side=None):
     s = 0
     if side == "right":
         for multiplier, value in enumerate(in_list, 1):

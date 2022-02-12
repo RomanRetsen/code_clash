@@ -31,21 +31,22 @@ digits Expected result
 420420420420420420420420420420420
 420420420
 '''
-the_string = input()
+the_string = '122333444455555666666'
 # the_string = '420' * 420
 
-current = int(the_string[0])
-result = [current,]
-build = 0
-build_string = []
-for char in the_string[1:]:
-    build_string.append(char)
-    build = int("".join(build_string))
-    print(build)
-    if build > current:
-        result.append(build)
-        current = build
-        build = 0
-        build_string.clear()
+def extract_increasing(digits):
+    current = int(the_string[0])
+    result = [current,]
+    build = 0
+    build_string = []
+    for char in the_string[1:]:
+        build_string.append(char)
+        build = int("".join(build_string))
+        if build > current:
+            result.append(build)
+            current = build
+            build = 0
+            build_string.clear()
+    return result
 
-print(result)
+print(extract_increasing(the_string))

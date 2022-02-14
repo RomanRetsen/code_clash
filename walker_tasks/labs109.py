@@ -1,6 +1,5 @@
 from itertools import product
 import operator
-from collections import deque
 
 def not_skipped(the_combination):
     the_steps = sorted([step_index[0] for step_index in the_combination])
@@ -294,6 +293,24 @@ def group_and_skip(n, out, ins):
         if not leftover == 0:
             return_list.append(leftover)
     return return_list
+
+def recaman_item(n):
+    if n == 0:
+        return 1
+    recaman_seq = [1,]
+    # power of set!!! if list is used to check existance with 'in' operator
+    # code become quite inefficient
+    check_set = {1,}
+    for i in range(1, n):
+        possible_new_value = recaman_seq[i-1] - (i + 1)
+        if possible_new_value > 0 and not possible_new_value in check_set:
+            recaman_seq.append(possible_new_value)
+            check_set.add(possible_new_value)
+        else:
+            new_value = recaman_seq[i-1] + (i + 1)
+            recaman_seq.append(new_value)
+            check_set.add(new_value)
+    return recaman_seq[-1]
 
 def postfix_evaluate(items):
     operational_stack = []

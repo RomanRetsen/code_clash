@@ -112,7 +112,7 @@ def crag_score(dice):
 # the_combination = [3,3,3]
 # the_combination = [4, 5, 4]
 # the_combination = [1,1,1]
-the_combination = [1,1,2]
+the_combination = [1,2, 4]
 print(crag_score(the_combination))
 
 

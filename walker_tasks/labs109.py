@@ -1,5 +1,6 @@
 from itertools import product
 import operator
+import math
 
 def not_skipped(the_combination):
     the_steps = sorted([step_index[0] for step_index in the_combination])
@@ -384,6 +385,18 @@ def crag_score(dice):
             return category_result[1]
     else:
         return 0
+    
+def sum_of_two_squares(n):
+    if n == 1:
+        return None
+    start = math.floor(n ** 0.5)
+    for i in range(start, start//2, -1):
+        end = n-i ** 2
+        if (i ** 2 + math.floor(end ** 0.5) ** 2) == n:
+            return (i, math.floor(end ** 0.5))
+    else:
+        return None
+    
 def postfix_evaluate(items):
     operational_stack = []
     operations = {"+":operator.add, "-":operator.sub, \

@@ -52,13 +52,12 @@ def colour_trio(color):
              frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
              frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
              }
-    new_color = []
-    while len(color) > 1:
-        for i in range(0, len(color)-1):
-            new_color.append(mixin[frozenset(color[i:i+2])])
-        color = "".join(new_color)
-        new_color.clear()
-    return color
+    the_color = list(color)
+    while len(the_color) > 1:
+        for i in range(0, len(the_color)-1):
+            the_color[i] = mixin[frozenset(the_color[i:i+2])]
+        del the_color[-1]
+    return the_color[0]
 
 def count_dominators(items):
     if len(items) > 0:

@@ -16,6 +16,7 @@ and 4, and add up the maximum pip values for the four remaining dice” does not
 demonstrated by the irst row of the following table. DUCY?
 """
 from itertools import product
+from time import time
 
 def not_skipped(the_combination):
     the_steps = sorted([step_index[0] for step_index in the_combination])
@@ -49,4 +50,6 @@ the_list = [[3, 4, 6, 6, 6, 2], [3, 2, 6, 2, 3, 3], [2, 2, 2, 2, 2, 3],
 #             [3, 6, 4, 6, 2, 3], [2, 3, 3, 2, 3, 2], [3, 5, 3, 5, 1, 2]] # 17
 # the_list = [[2, 6, 2, 5, 2, 5], [5, 3, 3, 2, 5, 3], [2, 2, 2, 2, 5, 2],
 #             [3, 6, 3, 2, 2, 5], [6, 2, 2, 6, 3, 2], [2, 2, 3, 2, 2, 2]] # 0
+t0 = time()
 print(midnight(the_list))
+print(f"Time taken {time() - t0}")

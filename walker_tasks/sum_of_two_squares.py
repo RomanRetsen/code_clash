@@ -31,7 +31,8 @@ import math
 def sum_of_two_squares(n):
     if n == 1:
         return None
-    start = math.floor(n ** 0.5)
+    if (start := math.floor(n ** 0.5)) == n ** 0.5:
+        start -= 1
     for i in range(start, start//2, -1):
         end = n-i ** 2
         if (i ** 2 + math.floor(end ** 0.5) ** 2) == n:
@@ -39,11 +40,12 @@ def sum_of_two_squares(n):
     else:
         return None
 
-print(sum_of_two_squares(55555**2 + 66666**2))
-print(sum_of_two_squares(123**2 + 456**2))
-print(sum_of_two_squares(50))
 print(sum_of_two_squares(85))
 print(sum_of_two_squares(11))
-print(sum_of_two_squares(1))
-print(sum_of_two_squares(0))
+print(sum_of_two_squares(2))
+print(sum_of_two_squares(50))
+print(sum_of_two_squares(8))
+print(sum_of_two_squares(123**2 + 456**2))
+print(sum_of_two_squares(55555**2 + 66666**2))
 print(sum_of_two_squares(74))
+print(sum_of_two_squares(4))

@@ -161,6 +161,7 @@ def optimal_crag_score(rolls):
 # rolls = [(3, 1, 2)]
 rolls = [ (1, 6, 6), (3, 5, 5)]
 
+
 print(optimal_crag_score(rolls))
 
 

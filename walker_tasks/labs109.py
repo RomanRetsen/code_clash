@@ -389,14 +389,30 @@ def crag_score(dice):
 def sum_of_two_squares(n):
     if n == 1:
         return None
-    start = math.floor(n ** 0.5)
+    if (start := math.floor(n ** 0.5)) == n ** 0.5:
+        start -= 1
     for i in range(start, start//2, -1):
         end = n-i ** 2
         if (i ** 2 + math.floor(end ** 0.5) ** 2) == n:
             return (i, math.floor(end ** 0.5))
     else:
         return None
-    
+
+def winning_card(cards, trump=None):
+    r = []
+    ranks = {'two': 2, 'three': 3, 'four': 4, 'five': 5,
+             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
+             'ten': 10, 'jack': 11, 'queen': 12, 'king': 13,
+             'ace': 14}
+    if not trump or trump not in {x[1] for x in cards}:
+        trump = cards[0][1]
+    for card in cards:
+        if card[1] == trump:
+            r.append((1, card[0], card[1]))
+        else:
+            r.append((0, card[0], card[1]))
+    return tuple(max(r, key=lambda x:(x[0], ranks[x[1]]))[1:])
+
 def postfix_evaluate(items):
     operational_stack = []
     operations = {"+":operator.add, "-":operator.sub, \
@@ -407,9 +423,10 @@ def postfix_evaluate(items):
             operand_2 = operational_stack.pop()
             operand_1 = operational_stack.pop()
             if item == "/" and operand_2 == 0:
-                return 0
-            operational_stack.append(
-                operations[item](operand_1, operand_2)
+                operational_stack.append(0)
+            else:
+                operational_stack.append(
+                    operations[item](operand_1, operand_2)
             )
         elif str(item).isdigit():
             operational_stack.append(item)
@@ -417,20 +434,3 @@ def postfix_evaluate(items):
         return operational_stack[0]
     else:
         return 0
-
-def winning_card(cards, trump=None):
-    r = []
-    ranks = {'two': 2, 'three': 3, 'four': 4, 'five': 5,
-             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
-             'ten': 10, 'jack': 11, 'queen': 12, 'king': 13,
-             'ace': 14}
-    if not trump:
-        trump = cards[0][1]
-    for card in cards:
-        if card[1] == trump:
-            r.append((1, card[0], card[1]))
-        else:
-            r.append((0, card[0], card[1]))
-    # print(r)
-    return tuple(max(r, key=lambda x:(x[0], ranks[x[1]]))[1:])
-

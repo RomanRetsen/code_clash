@@ -39,14 +39,14 @@ def winning_card(cards, trump=None):
 # trump = None
 
 #test2
-# cards = [('ace', 'diamonds'), ('ace', 'hearts'), \
-#          ('ace', 'spades'), ('two', 'clubs')]
-# trump = 'clubs'
+cards = [('ace', 'diamonds'), ('ace', 'hearts'), \
+         ('ace', 'spades'), ('two', 'clubs')]
+trump = 'clubs'
 #
 # test3
-cards = [('two', 'clubs'), ('ace', 'diamonds'), \
-         ('ace', 'hearts'), ('ace', 'spades')]
-trump = None
+# cards = [('two', 'clubs'), ('ace', 'diamonds'), \
+#          ('ace', 'hearts'), ('ace', 'spades')]
+# trump = None
 
 print(winning_card(cards, trump=trump))
 

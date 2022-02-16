@@ -23,14 +23,14 @@ def winning_card(cards, trump=None):
              'ten': 10, 'jack': 11, 'queen': 12, 'king': 13,
              'ace': 14}
     # suits = ("spades", "diamonds", "hearts", "clubs")
-    if not trump:
+    if not trump or trump not in {x[1] for x in cards}:
         trump = cards[0][1]
     for card in cards:
         if card[1] == trump:
             r.append((1, card[0], card[1]))
         else:
             r.append((0, card[0], card[1]))
-    # print(r)
+    print(r)
     return tuple(max(r, key=lambda x:(x[0], ranks[x[1]]))[1:])
 
 #test1
@@ -44,9 +44,12 @@ def winning_card(cards, trump=None):
 # trump = 'clubs'
 #
 # test3
-cards = [('two', 'clubs'), ('ace', 'diamonds'), \
-         ('ace', 'hearts'), ('ace', 'spades')]
-trump = None
+# cards = [('two', 'clubs'), ('ace', 'diamonds'), \
+#          ('ace', 'hearts'), ('ace', 'spades')]
+# trump = None
+# cards = [('two', 'hearts'), ('nine', 'spades'), \
+#          ('two', 'clubs'), ('ace', 'spades')]
+# trump = "diamonds"
 
 print(winning_card(cards, trump=trump))
 

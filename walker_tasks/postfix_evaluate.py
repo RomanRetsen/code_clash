@@ -43,9 +43,10 @@ def postfix_evaluate(items):
             operand_2 = operational_stack.pop()
             operand_1 = operational_stack.pop()
             if item == "/" and operand_2 == 0:
-                return 0
-            operational_stack.append(
-                operations[item](operand_1, operand_2)
+                operational_stack.append(0)
+            else:
+                operational_stack.append(
+                    operations[item](operand_1, operand_2)
             )
         elif str(item).isdigit():
             operational_stack.append(item)
@@ -61,6 +62,6 @@ def postfix_evaluate(items):
 # input_data =  [1, 2, 3, 4, 5, 6, '*', '*', '*', '*', '*'] # 1 * 2 * 3 * 4 * 5 * 6 result 720
 # input_data = [10, 9, "/"]
 # input_data = [int(x) if x.isdigit() else x for x in "10 3 5 * 16 4 - / +".split(" ")]
-input_data = []
+input_data = [5, 4, 2, 8, 1, 4, '*', 3, '-', 8, '-', 10, 4, '/', 1, 4, '+', 2, '*', 4, '*', '/', '/', 7, 4, 8, 2, 1, 9, '*', '/', 2, 8, '+', '-', 5, 10, '+', '-', 10, '*', 3, 1, '*', '/', '-', 5, '/', '-', 5, '+', '*', 1, '-', 10, '*', '-', 10, '*', '-', 7, 10, 8, 9, '*', 2, 8, 8, 3, '/', '+', 2, '*', 7, 2, '/', 2, '/', '+', 8, '+', '-', 5, '/', '*', '*', 1, '-', 10, 1, '/', 3, 6, 10, '-', 8, 1, '/', 6, '-', 8, '-', 9, '*', 5, '-', 6, '+', '-', 1, 2, '/', '*', '-', 4, '+', '*', 4, 9, 5, 10, '*', '*', 1, 2, '/', 6, '-', '+', '*', 1, 3, '-', 5, '*', '+', '-', 4, 1, '+', '-', '/', 7, '-', '-', 2, '+', 3, '+', '-', '*', '*', '*']
 
 print(postfix_evaluate(input_data))

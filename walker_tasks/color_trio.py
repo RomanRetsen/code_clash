@@ -28,19 +28,46 @@ colours Expected result
 '''
 
 
+# def colour_trio(color):
+#     mixin = {frozenset("ry"):"b", frozenset("by"):"r", frozenset("br"):"y",
+#              frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
+#              frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
+#              }
+#     new_color = []
+#     while len(color) > 1:
+#         for i in range(0, len(color)-1):
+#             new_color.append(mixin[frozenset(color[i:i+2])])
+#         color = "".join(new_color)
+#         new_color.clear()
+#     return color
+#
+# def colour_trio2(color):
+#     mixin = {frozenset("ry"):"b", frozenset("by"):"r", frozenset("br"):"y",
+#              frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
+#              frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
+#              }
+#     the_color = list(color)
+#     for y in range(len(the_color) - 1):
+#         for i in range(0, len(the_color)-1):
+#             the_color[i] = mixin[frozenset(the_color[i:i+2])]
+#     return the_color[0]
 def colour_trio(color):
     mixin = {frozenset("ry"):"b", frozenset("by"):"r", frozenset("br"):"y",
              frozenset("y"):"b", frozenset("b"):"b", frozenset("r"):"r",
              frozenset("yy"):"y", frozenset("bb"):"b", frozenset("rr"):"r",
              }
-    new_color = []
-    while len(color) > 1:
-        for i in range(0, len(color)-1):
-            new_color.append(mixin[frozenset(color[i:i+2])])
-        color = "".join(new_color)
-        new_color.clear()
-    return color
-
+    the_color = list(color)
+    j = 0
+    while len(the_color) > 1:
+        i = 0
+        print(len(the_color) - 1 - j)
+        while i < (len(the_color) - 1):
+            the_color[i] = mixin[frozenset(the_color[i:i+2])]
+            i += 1
+        print(the_color)
+        del the_color[-1]
+        j += 1
+    return the_color[0]
 color = 'yrbbbbryyrybb' # b
 # color = 'rbyryrrbyrbb' # y
 # color = 'brybbr' # r

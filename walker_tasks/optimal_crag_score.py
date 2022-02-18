@@ -104,33 +104,63 @@ def crag_score(dice, category_card):
     for category_result, category_combinations \
             in sorted([(x,y) for x,y in category_card.items() if y[0] == 0], key=lambda x:x[0][1], reverse=True):
         if sorted_dice in category_combinations[1]:
-            category_card[category_result][0] == 1
+            # category_card[category_result][0] == 1
             return category_result[1]
     else:
         return 0
 
 def find_best_score(rolls, category_card, score):
     print(rolls)
-    if len(rolls) == 1:
-        return crag_score(rolls[0], category_card)
+    if len(rolls) == 0:
+        return score
+    current = tuple(sorted(rolls.popleft()))
+    round_max = -1
+    the_key = None
+    print(category_card)
+    for category_result, category_combinations \
+            in sorted([(x, y) for x, y in category_card.items() if y[0] == 0], key=lambda x: x[0][1], reverse=True):
+        if current in category_combinations[1]:
+            to_change = round_max
+            round_max = max(round_max, find_best_score(rolls, category_card, score + category_result[1]))
+            if round_max > to_change:
+                the_key = category_result
+    print(f"the key {the_key}")
+    category_card[the_key][0] = 1
+    print(f"in {category_card}")
+    return round_max
+
+def score_backup(rolls, category_card, score):
+    print(rolls)
+    if len(rolls) == 0:
+        return 0
+        # return crag_score(rolls[0], category_card)
     current = tuple(sorted(rolls.popleft()))
     round_max = score
     for category_result, category_combinations \
             in sorted([(x, y) for x, y in category_card.items() if y[0] == 0], key=lambda x: x[0][1], reverse=True):
+        round_max = max(round_max, find_best_score(rolls, category_card, score ))
         if current in category_combinations[1] and score + category_result[1] > round_max:
             category_card[category_result][0] = 1
             round_max = score + category_result[1]
-            return round_max + find_best_score(rolls, category_card, round_max)
-
+    # return round_max + find_best_score(rolls, category_card, score + round_max)
+    return round_max
 
 def optimal_crag_score(rolls):
     category_card = generate_all_categories()
     rolls_like_deque = deque(rolls)
     return find_best_score(rolls_like_deque, category_card, 0)
 
-rolls = [(1, 6, 6), (2, 5, 6), (4, 5, 6), (2, 3, 5)]
+# rolls = [(5, 1, 1), (3, 5, 2), (2, 3, 2), (4, 3, 6), \
+#          (6, 4, 6), (4, 5, 2), (6, 4, 5)]
+# rolls = [(3, 1, 2), (1, 4, 2), (5, 2, 3), (5, 5, 3), \
+#          (2, 6, 3), (1, 1, 1), (5, 2, 5)]
+# rolls = [(1, 5, 1), (5, 5, 6), (3, 2, 4), (4, 6, 1), \
+#          (4, 4, 1), (3, 2, 4), (3, 4, 5), (1, 2, 2)]
+# rolls = [(1, 6, 6), (2, 5, 6), (4, 5, 6), (2, 3, 5)]
 # rolls = [(3, 1, 2), (1, 4, 2)]
 # rolls = [(3, 1, 2)]
+rolls = [ (1, 6, 6), (3, 5, 5)]
+
 
 print(optimal_crag_score(rolls))
 

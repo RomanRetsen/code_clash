@@ -13,15 +13,15 @@ output
 def count_dominators(items):
     if len(items) > 0:
         counter = 1
-        items_reversed = list(reversed(items))
-        current = items_reversed[0]
+        current = items[-1]
     else:
         counter = 0
-    for i in range(1, len(items)):
-        if items_reversed[i] > current:
-            current = items_reversed[i]
+    for i in range(len(items)-2, -1, -1):
+        if items[i] > current:
+            current = items[i]
             counter += 1
     return counter
+
 
 # items = [int(x) for x in input().split()]
 # items = range(10**7, 0, -1)

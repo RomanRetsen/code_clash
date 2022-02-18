@@ -59,19 +59,27 @@ def colour_trio(color):
         color = "".join(new_color)
         new_color.clear()
     return color
-
+    
 def count_dominators(items):
     if len(items) > 0:
         counter = 1
-        items_reversed = list(reversed(items))
-        current = items_reversed[0]
+        current = items[-1]
     else:
         counter = 0
-    for i in range(1, len(items)):
-        if items_reversed[i] > current:
-            current = items_reversed[i]
+    for i in range(len(items)-2, -1, -1):
+        if items[i] > current:
+            current = items[i]
             counter += 1
     return counter
+
+def group_and_skip(n, out, ins):
+    recording_list = []
+    while (piles:= n // out) > 0:
+        recording_list.append(n % out)
+        n = ins * piles
+    else:
+        recording_list.append(n % out)
+    return recording_list
 
 def only_odd_digits(n):
     while (new_n := n // 10) > 0:
@@ -283,17 +291,6 @@ def josephus(n, k):
         right_side = zealot_circle[:killed]
         zealot_circle = left_side + right_side
     return return_sequence
-
-def group_and_skip(n, out, ins):
-    return_list = []
-    while (leftover := (n // out ) * ins) > ins:
-        return_list.append(n % out)
-        n = leftover
-    else:
-        return_list.append(n % out)
-        if not leftover == 0:
-            return_list.append(leftover)
-    return return_list
 
 def recaman_item(n):
     if n == 0:

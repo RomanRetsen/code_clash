@@ -87,11 +87,13 @@ def merge_sort(in_list):
 
 
 
-the_list = [randint(1, 100) for _ in range(5)]
-# the_list = [51, 92, 52, 76,80,93,100]
-the_list2 = the_list[:]
-print(the_list)
-bubble_sort(the_list)
-merge_sort(the_list2)
-print(the_list)
-print(the_list2)
+# the_list = [randint(1, 100) for _ in range(5)]
+the_list = [51, 92, 52, 76,80,93,100]
+# the_list2 = the_list[:]
+# print(the_list)
+# bubble_sort(the_list)
+# merge_sort(the_list2)
+# print(the_list)
+# print(the_list2)
+
+print(bubble_sort([randint(0, 100) for x in range(10000)]))

@@ -431,3 +431,73 @@ def postfix_evaluate(items):
         return operational_stack[0]
     else:
         return 0
+        
+def count_carries(a, b):
+    carrier_dump = 0
+    carrier_counter = 0
+    try_once = True
+    while a // 10 > 0 and b // 10 > 0:
+        carrier_dump = (a % 10 + b % 10 + carrier_dump) // 10
+        if carrier_dump > 0:
+            carrier_counter += 1
+        a = a // 10
+        b = b // 10
+    else:
+        # carrier_dump = (a % 10 + b % 10) % 10
+        while (a // 10 > 0 or b // 10 > 0) and try_once:
+            carrier_dump = (a % 10 + b % 10 + carrier_dump) // 10
+            if carrier_dump > 0:
+                carrier_counter += 1
+            else:
+                try_once = False
+            a = a // 10
+            b = b // 10
+        else:
+            if (a % 10 + b % 10 + carrier_dump ) // 10 > 0:
+                carrier_counter += 1
+    return carrier_counter
+
+def count_carries(a, b):
+    carrier_dump = 0
+    carrier_counter = 0
+    try_once = True
+    while (a // 10 > 0 or b // 10 > 0) and try_once:
+        carrier_dump = (a % 10 + b % 10 + carrier_dump) // 10
+        a = a // 10
+        b = b // 10
+        if carrier_dump > 0:
+            carrier_counter += 1
+        elif any((a == 0, b == 0)):
+            try_once = False
+    else:
+        if (a % 10 + b % 10 + carrier_dump ) // 10 > 0:
+            carrier_counter += 1
+    return carrier_counter
+
+def nearest_smaller(items):
+    return_list = [0 for _ in range(len(items))]
+    for i in range(len(items)):
+        left = i - 1
+        right = i + 1
+        current = items[i]
+        while left >= 0 and right <= len(items) - 1:
+            if (pair_min := min((items[left], items[right])) ) < current:
+                return_list[i] = pair_min
+                break
+            left -= 1
+            right += 1
+        else:
+            while left >= 0:
+                if items[left] < current:
+                    # return_list[i] = items[left]
+                    current =  items[left]
+                    break
+                left -= 1
+            while right <= len(items) - 1:
+                if items[right] < current:
+                    # return_list[i] = items[right]
+                    current = items[right]
+                    break
+                right += 1
+            return_list[i] = current
+    return return_list

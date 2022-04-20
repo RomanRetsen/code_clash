@@ -2,6 +2,7 @@ from itertools import product
 import operator
 import math
 
+'''
 def not_skipped(the_combination):
     the_steps = sorted([step_index[0] for step_index in the_combination])
     current = the_steps[0]
@@ -431,6 +432,25 @@ def postfix_evaluate(items):
         return operational_stack[0]
     else:
         return 0
+'''
+
+def three_summers(items, goal):
+    i = 0
+    l = len(items) - 3
+    while i <= l and items[i] * 3 <= goal:
+        start = i+1
+        end = len(items) - 1
+        newGoal = goal - items[i]
+        while start < end:
+            two_summers = items[start] + items[end]
+            if two_summers == newGoal:
+                return True
+            elif two_summers < newGoal:
+                start += 1
+            else:
+                end -= 1
+        i += 1
+    return False
         
 def count_carries(a, b):
     carrier_dump = 0

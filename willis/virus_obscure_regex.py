@@ -14,12 +14,7 @@ with open("my_copy_vba", "rt") as f:
         print(wahsg(line.strip()), end="")
 '''
 
-dctwz = "(."
-zthwa = "$"
 pattern = "(.+)O(.+)"
-
-def cgzew():
-    return "O" + dctwz + "+)"
 
 def dvci_2(jxuvy):
     return int(re.sub(pattern, '\\2', jxuvy))

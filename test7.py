@@ -1,20 +1,7 @@
-import sys
-import math
+def get_total(values):
+    assert len(values) > 0
+    for element in values:
+        assert float(element)
 
-# Auto-generated code below aims at helping you parse
-# the standard input according to the problem statement.
 
-n = int(input())
-
-a = b = 1
-d = 10000000
-increase = True
-
-while True:
-    print(f"Trying new distance {n-b}")
-    if ((new_d := abs(n-b)) < d) and (abs(n-b) >= 0):
-        d = new_d
-    else:
-        break
-    a, b = b, a+b
-print(d)
+get_total([1,2,3,5.1, "5.1"])

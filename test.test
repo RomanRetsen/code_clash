@@ -1,2 +1,5 @@
-Роман
-Нестер
+import heap
+import random
+
+
+my_list = [random.randint]

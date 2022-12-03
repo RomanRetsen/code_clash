@@ -1,53 +1,134 @@
 '''
-You are given 3 integers x, y, and z. Return x raised to the power of y modulo z. If the operation is invalid, return "undefined".
-
-For example:
-Given 10, 2, 99. Return 1. Since (10 ^ 2) mod 99 = 100 % 99 = 1.
-
-Hint:
-Notice how (a * a) % b = ((a % b) * (a % b)) % b.
-Input
-Line 1: An integer x
-Line 1: An integer y
-Line 1: An integer z
+Line 1: The size N of the grid.
+Line 2: The number of words W.
+Next W lines: The word list.
 Output
-Line 1 : An integer that is modulo z of x ^ y.
----------------------------------------------
+One line with the two diagonal words, space separated and in alphabetical order.
+Constraints
+3 ≤ N ≤ 20
+W ≤ 100
+Example
+Input
 
-1987654321
-1123456789
-88888888
+3
+3
+cow
+bat
+rat
+
+Output
+
+cat war
+
+--------------test2
+
+
+5
+5
+sack
+cute
+harbour
+skull
+elite
+
 output
-65130937
---------------------------------------------
+
+choke stole
+
+----------------test3
 
 
-123
-456
-789
+8
+10
+magical
+academy
+bail
+reasoning
+golden
+alliance
+auto
+negotiate
+alert
+angel
+
 output
-699
+
+absolute marginal
+
+-------------------------test4
+
+
+15
+36
+tackle
+absent
+fake
+racial
+absurd
+icon
+ultimate
+annually
+sack
+abundance
+abstract
+challenging
+wander
+abuse
+acid
+domain
+academy
+accordance
+accelerate
+tactic
+accent
+ease
+habitat
+amid
+acre
+aide
+accountable
+banner
+adequate
+acute
+aids
+absorb
+adverse
+sacred
+alert
+bass
+
+kindheartedness trustworthiness
 
 
 '''
-def pow_mod(B, E, M):
-    print(f"x{B}-y{E}-z{M}")
-    if E == 0:
-        print(f"returning1 1")
-        return 1
-    elif E == 1:
-        print(f"returning2 {B % M}")
-        return B % M
-    else:
-        root = pow_mod(B, E // 2, M)
-        if E % 2 == 0:
-            print(f"returning3 {root * root % M}")
-            return (root * root) % M
-        else:
-            print(f"returning4 {(root * root * B) % M}")
-            return (root * root * B) % M
 
-x = int(input())
-y = int(input())
-z = int(input())
-print(pow_mod(x, y, z))
+r1 = []
+r2 = []
+n = int(input())
+w = int(input())
+temp_n = 0
+# temp_n2 = 0
+for i in range(w):
+    row = input()
+    for letter in row:
+        if temp_n == 0:
+            r1.append(letter)
+            temp_n += 1
+        elif temp_n == n - 1:
+            r2.append(letter)
+            temp_n += 1
+        elif temp_n == n:
+            temp_n = 0
+        else:
+            temp_n += 1
+
+        # if temp_n2 == n - 1:
+        #     r2.append(letter)
+        #     temp_n2 -= 1
+        # elif temp_n == n:
+        #     temp_n = 0
+        # else:
+        #     temp_n += 1
+
+print("".join(r1))
+print("".join(r2))

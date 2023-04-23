@@ -1,0 +1,281 @@
+Apr 12 21:05:39 linux01 VGAuth[706]: vmtoolsd: Username and password successfully validated for 'root'.
+Apr 12 21:05:40 linux01 VGAuth[706]: vmtoolsd: Username and password successfully validated for 'root'.
+Apr 12 21:05:41 linux01 VGAuth[706]: vmtoolsd: Username and password successfully validated for 'root'.
+Apr 12 21:06:36 linux01 CRON[2180]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:06:36 linux01 CRON[2180]: pam_unix(cron:session): session closed for user root
+Apr 12 21:07:01 linux01 CRON[2182]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:07:01 linux01 CRON[2182]: pam_unix(cron:session): session closed for user root
+Apr 12 21:07:40 linux01 sshd[2184]: Accepted password for offsec from 192.168.45.5 port 58542 ssh2
+Apr 12 21:07:40 linux01 sshd[2184]: pam_unix(sshd:session): session opened for user offsec by (uid=0)
+Apr 12 21:07:40 linux01 systemd-logind[783]: New session 7 of user offsec.
+Apr 12 21:07:41 linux01 systemd: pam_unix(systemd-user:session): session opened for user offsec by (uid=0)
+Apr 12 21:08:01 linux01 CRON[2383]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:08:01 linux01 CRON[2383]: pam_unix(cron:session): session closed for user root
+Apr 12 21:08:06 linux01 dbus-daemon[731]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Apr 12 21:09:01 linux01 CRON[2465]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:09:01 linux01 CRON[2464]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:09:01 linux01 CRON[2465]: pam_unix(cron:session): session closed for user root
+Apr 12 21:09:01 linux01 CRON[2464]: pam_unix(cron:session): session closed for user root
+Apr 12 21:10:01 linux01 CRON[2519]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:10:01 linux01 CRON[2519]: pam_unix(cron:session): session closed for user root
+Apr 12 21:11:01 linux01 CRON[2521]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:11:01 linux01 CRON[2521]: pam_unix(cron:session): session closed for user root
+Apr 12 21:12:01 linux01 CRON[2523]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:12:01 linux01 CRON[2523]: pam_unix(cron:session): session closed for user root
+Apr 12 21:13:01 linux01 CRON[2525]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:13:01 linux01 CRON[2525]: pam_unix(cron:session): session closed for user root
+Apr 12 21:14:01 linux01 CRON[2530]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:14:01 linux01 CRON[2530]: pam_unix(cron:session): session closed for user root
+Apr 12 21:15:01 linux01 CRON[2533]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:15:01 linux01 CRON[2533]: pam_unix(cron:session): session closed for user root
+Apr 12 21:16:01 linux01 CRON[2536]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:16:01 linux01 CRON[2536]: pam_unix(cron:session): session closed for user root
+Apr 12 21:17:01 linux01 CRON[2540]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:17:01 linux01 CRON[2539]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:17:01 linux01 CRON[2540]: pam_unix(cron:session): session closed for user root
+Apr 12 21:17:01 linux01 CRON[2539]: pam_unix(cron:session): session closed for user root
+Apr 12 21:18:01 linux01 CRON[2544]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:18:01 linux01 CRON[2544]: pam_unix(cron:session): session closed for user root
+Apr 12 21:19:01 linux01 CRON[2548]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:19:01 linux01 CRON[2548]: pam_unix(cron:session): session closed for user root
+Apr 12 21:20:01 linux01 CRON[2550]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:20:01 linux01 CRON[2550]: pam_unix(cron:session): session closed for user root
+Apr 12 21:21:01 linux01 CRON[2552]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:21:01 linux01 CRON[2552]: pam_unix(cron:session): session closed for user root
+Apr 12 21:22:01 linux01 CRON[2555]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:22:01 linux01 CRON[2555]: pam_unix(cron:session): session closed for user root
+Apr 12 21:23:01 linux01 CRON[2557]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:23:01 linux01 CRON[2557]: pam_unix(cron:session): session closed for user root
+Apr 12 21:24:01 linux01 CRON[2561]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:24:01 linux01 CRON[2561]: pam_unix(cron:session): session closed for user root
+Apr 12 21:25:01 linux01 CRON[2563]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:25:01 linux01 CRON[2563]: pam_unix(cron:session): session closed for user root
+Apr 12 21:26:01 linux01 CRON[2565]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:26:01 linux01 CRON[2565]: pam_unix(cron:session): session closed for user root
+Apr 12 21:27:01 linux01 CRON[2567]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:27:01 linux01 CRON[2567]: pam_unix(cron:session): session closed for user root
+Apr 12 21:28:01 linux01 CRON[2569]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:28:01 linux01 CRON[2569]: pam_unix(cron:session): session closed for user root
+Apr 12 21:29:01 linux01 CRON[2571]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:29:01 linux01 CRON[2571]: pam_unix(cron:session): session closed for user root
+Apr 12 21:30:01 linux01 CRON[2575]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:30:01 linux01 CRON[2574]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:30:01 linux01 CRON[2575]: pam_unix(cron:session): session closed for user root
+Apr 12 21:30:01 linux01 CRON[2574]: pam_unix(cron:session): session closed for user root
+Apr 12 21:31:01 linux01 CRON[2578]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:31:01 linux01 CRON[2578]: pam_unix(cron:session): session closed for user root
+Apr 12 21:32:01 linux01 CRON[2580]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:32:01 linux01 CRON[2580]: pam_unix(cron:session): session closed for user root
+Apr 12 21:33:01 linux01 CRON[2582]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:33:01 linux01 CRON[2582]: pam_unix(cron:session): session closed for user root
+Apr 12 21:34:01 linux01 CRON[2586]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:34:01 linux01 CRON[2586]: pam_unix(cron:session): session closed for user root
+Apr 12 21:35:01 linux01 CRON[2589]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:35:01 linux01 CRON[2589]: pam_unix(cron:session): session closed for user root
+Apr 12 21:36:01 linux01 CRON[2591]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:36:01 linux01 CRON[2591]: pam_unix(cron:session): session closed for user root
+Apr 12 21:37:01 linux01 CRON[2593]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:37:01 linux01 CRON[2593]: pam_unix(cron:session): session closed for user root
+Apr 12 21:38:01 linux01 CRON[2595]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:38:01 linux01 CRON[2595]: pam_unix(cron:session): session closed for user root
+Apr 12 21:39:01 linux01 CRON[2650]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:39:01 linux01 CRON[2649]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:39:01 linux01 CRON[2650]: pam_unix(cron:session): session closed for user root
+Apr 12 21:39:01 linux01 CRON[2649]: pam_unix(cron:session): session closed for user root
+Apr 12 21:40:01 linux01 CRON[2702]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:40:01 linux01 CRON[2702]: pam_unix(cron:session): session closed for user root
+Apr 12 21:41:01 linux01 CRON[2704]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:41:01 linux01 CRON[2704]: pam_unix(cron:session): session closed for user root
+Apr 12 21:42:01 linux01 CRON[2706]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:42:01 linux01 CRON[2706]: pam_unix(cron:session): session closed for user root
+Apr 12 21:42:38 linux01 sudo:   offsec : TTY=pts/0 ; PWD=/home/offsec/SOC-200/Linux_Server_Side_Attacks ; USER=root ; COMMAND=/usr/bin/su
+Apr 12 21:42:38 linux01 sudo: pam_unix(sudo:session): session opened for user root by offsec(uid=0)
+Apr 12 21:42:38 linux01 su: (to root) offsec on pts/0
+Apr 12 21:42:38 linux01 su: pam_tty_audit(su:session): changed status from 0 to 1
+Apr 12 21:42:38 linux01 su: pam_unix(su:session): session opened for user root by offsec(uid=0)
+Apr 12 21:43:01 linux01 CRON[2720]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:43:01 linux01 CRON[2720]: pam_unix(cron:session): session closed for user root
+Apr 12 21:44:01 linux01 CRON[2738]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:44:01 linux01 CRON[2738]: pam_unix(cron:session): session closed for user root
+Apr 12 21:45:01 linux01 CRON[2741]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:45:01 linux01 CRON[2741]: pam_unix(cron:session): session closed for user root
+Apr 12 21:46:01 linux01 CRON[2743]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:46:01 linux01 CRON[2743]: pam_unix(cron:session): session closed for user root
+Apr 12 21:47:01 linux01 CRON[2745]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:47:01 linux01 CRON[2745]: pam_unix(cron:session): session closed for user root
+Apr 12 21:48:01 linux01 CRON[2747]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:48:01 linux01 CRON[2747]: pam_unix(cron:session): session closed for user root
+Apr 12 21:49:01 linux01 CRON[2754]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:49:01 linux01 CRON[2754]: pam_unix(cron:session): session closed for user root
+Apr 12 21:50:01 linux01 CRON[2757]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:50:01 linux01 CRON[2757]: pam_unix(cron:session): session closed for user root
+Apr 12 21:51:01 linux01 CRON[2759]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:51:01 linux01 CRON[2759]: pam_unix(cron:session): session closed for user root
+Apr 12 21:52:01 linux01 CRON[2761]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:52:01 linux01 CRON[2761]: pam_unix(cron:session): session closed for user root
+Apr 12 21:53:01 linux01 CRON[2764]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:53:01 linux01 CRON[2764]: pam_unix(cron:session): session closed for user root
+Apr 12 21:54:01 linux01 CRON[2767]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:54:01 linux01 CRON[2767]: pam_unix(cron:session): session closed for user root
+Apr 12 21:55:01 linux01 CRON[2770]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:55:01 linux01 CRON[2770]: pam_unix(cron:session): session closed for user root
+Apr 12 21:56:01 linux01 CRON[2772]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:56:01 linux01 CRON[2772]: pam_unix(cron:session): session closed for user root
+Apr 12 21:57:01 linux01 CRON[2774]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:57:01 linux01 CRON[2774]: pam_unix(cron:session): session closed for user root
+Apr 12 21:58:01 linux01 CRON[2776]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:58:01 linux01 CRON[2776]: pam_unix(cron:session): session closed for user root
+Apr 12 21:59:01 linux01 CRON[2779]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 21:59:01 linux01 CRON[2779]: pam_unix(cron:session): session closed for user root
+Apr 12 22:00:01 linux01 CRON[2782]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:00:01 linux01 CRON[2782]: pam_unix(cron:session): session closed for user root
+Apr 12 22:01:01 linux01 CRON[2784]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:01:01 linux01 CRON[2784]: pam_unix(cron:session): session closed for user root
+Apr 12 22:02:01 linux01 CRON[2786]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:02:01 linux01 CRON[2786]: pam_unix(cron:session): session closed for user root
+Apr 12 22:03:01 linux01 CRON[2788]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:03:01 linux01 CRON[2788]: pam_unix(cron:session): session closed for user root
+Apr 12 22:04:01 linux01 CRON[2791]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:04:01 linux01 CRON[2791]: pam_unix(cron:session): session closed for user root
+Apr 12 22:05:01 linux01 CRON[2794]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:05:01 linux01 CRON[2794]: pam_unix(cron:session): session closed for user root
+Apr 12 22:06:01 linux01 CRON[2796]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:06:01 linux01 CRON[2796]: pam_unix(cron:session): session closed for user root
+Apr 12 22:07:01 linux01 CRON[2798]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:07:01 linux01 CRON[2798]: pam_unix(cron:session): session closed for user root
+Apr 12 22:08:01 linux01 CRON[2800]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:08:01 linux01 CRON[2800]: pam_unix(cron:session): session closed for user root
+Apr 12 22:09:01 linux01 CRON[2804]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:09:01 linux01 CRON[2803]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:09:01 linux01 CRON[2804]: pam_unix(cron:session): session closed for user root
+Apr 12 22:09:01 linux01 CRON[2803]: pam_unix(cron:session): session closed for user root
+Apr 12 22:10:01 linux01 CRON[2856]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:10:01 linux01 CRON[2856]: pam_unix(cron:session): session closed for user root
+Apr 12 22:10:52 linux01 sshd[2858]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.160.50  user=offsec
+Apr 12 22:10:54 linux01 sshd[2858]: Failed password for offsec from 192.168.160.50 port 49628 ssh2
+Apr 12 22:10:59 linux01 sshd[2858]: Connection closed by authenticating user offsec 192.168.160.50 port 49628 [preauth]
+Apr 12 22:11:01 linux01 CRON[2860]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:11:01 linux01 CRON[2860]: pam_unix(cron:session): session closed for user root
+Apr 12 22:12:01 linux01 sshd[2862]: Connection closed by authenticating user offsec 192.168.160.50 port 49630 [preauth]
+Apr 12 22:12:01 linux01 sshd[2864]: Connection closed by authenticating user offsec 192.168.160.50 port 49632 [preauth]
+Apr 12 22:12:01 linux01 CRON[2868]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:12:01 linux01 CRON[2868]: pam_unix(cron:session): session closed for user root
+Apr 12 22:12:03 linux01 sshd[2866]: Accepted password for offsec from 192.168.160.50 port 49634 ssh2
+Apr 12 22:12:03 linux01 sshd[2866]: pam_unix(sshd:session): session opened for user offsec by (uid=0)
+Apr 12 22:12:03 linux01 systemd-logind[783]: New session 79 of user offsec.
+Apr 12 22:12:03 linux01 sshd[2948]: Received disconnect from 192.168.160.50 port 49634:11: disconnected by user
+Apr 12 22:12:03 linux01 sshd[2948]: Disconnected from user offsec 192.168.160.50 port 49634
+Apr 12 22:12:03 linux01 sshd[2866]: pam_unix(sshd:session): session closed for user offsec
+Apr 12 22:12:03 linux01 systemd-logind[783]: Session 79 logged out. Waiting for processes to exit.
+Apr 12 22:12:03 linux01 systemd-logind[783]: Removed session 79.
+Apr 12 22:12:14 linux01 sshd[2953]: Accepted publickey for offsec from 192.168.160.50 port 49636 ssh2: ED25519 SHA256:GPtNF8OIh6uS4Zz8Avy1rPSIgYfWZ9/NI+yFUXWCmnw
+Apr 12 22:12:14 linux01 sshd[2953]: pam_unix(sshd:session): session opened for user offsec by (uid=0)
+Apr 12 22:12:14 linux01 systemd-logind[783]: New session 80 of user offsec.
+Apr 12 22:12:20 linux01 sshd[3011]: Received disconnect from 192.168.160.50 port 49636:11: disconnected by user
+Apr 12 22:12:20 linux01 sshd[3011]: Disconnected from user offsec 192.168.160.50 port 49636
+Apr 12 22:12:20 linux01 sshd[2953]: pam_unix(sshd:session): session closed for user offsec
+Apr 12 22:12:20 linux01 systemd-logind[783]: Session 80 logged out. Waiting for processes to exit.
+Apr 12 22:12:20 linux01 systemd-logind[783]: Removed session 80.
+Apr 12 22:12:56 linux01 sshd[3019]: Connection closed by authenticating user offsec 192.168.160.50 port 49638 [preauth]
+Apr 12 22:13:01 linux01 CRON[3021]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:13:01 linux01 CRON[3021]: pam_unix(cron:session): session closed for user root
+Apr 12 22:13:32 linux01 sshd[3024]: Connection closed by authenticating user offsec 192.168.160.50 port 49642 [preauth]
+Apr 12 22:14:01 linux01 CRON[3026]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:14:01 linux01 CRON[3026]: pam_unix(cron:session): session closed for user root
+Apr 12 22:15:01 linux01 CRON[3031]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:15:01 linux01 CRON[3031]: pam_unix(cron:session): session closed for user root
+Apr 12 22:16:01 linux01 CRON[3034]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:16:01 linux01 CRON[3034]: pam_unix(cron:session): session closed for user root
+Apr 12 22:16:08 linux01 sshd[907]: Received signal 15; terminating.
+Apr 12 22:16:08 linux01 sshd[3040]: Server listening on 0.0.0.0 port 22.
+Apr 12 22:16:08 linux01 sshd[3040]: Server listening on :: port 22.
+Apr 12 22:16:14 linux01 sshd[3041]: Connection closed by authenticating user offsec 192.168.160.50 port 49644 [preauth]
+Apr 12 22:17:01 linux01 CRON[3047]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:17:01 linux01 CRON[3046]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:17:01 linux01 CRON[3047]: pam_unix(cron:session): session closed for user root
+Apr 12 22:17:01 linux01 CRON[3046]: pam_unix(cron:session): session closed for user root
+Apr 12 22:17:34 linux01 sshd[3057]: Accepted publickey for offsec from 192.168.160.50 port 49646 ssh2: ED25519 SHA256:GPtNF8OIh6uS4Zz8Avy1rPSIgYfWZ9/NI+yFUXWCmnw
+Apr 12 22:17:34 linux01 sshd[3057]: pam_unix(sshd:session): session opened for user offsec by (uid=0)
+Apr 12 22:17:34 linux01 systemd-logind[783]: New session 87 of user offsec.
+Apr 12 22:17:56 linux01 sshd[3115]: Received disconnect from 192.168.160.50 port 49646:11: disconnected by user
+Apr 12 22:17:56 linux01 sshd[3115]: Disconnected from user offsec 192.168.160.50 port 49646
+Apr 12 22:17:56 linux01 sshd[3057]: pam_unix(sshd:session): session closed for user offsec
+Apr 12 22:17:56 linux01 systemd-logind[783]: Session 87 logged out. Waiting for processes to exit.
+Apr 12 22:17:56 linux01 systemd-logind[783]: Removed session 87.
+Apr 12 22:18:01 linux01 CRON[3127]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:18:01 linux01 CRON[3127]: pam_unix(cron:session): session closed for user root
+Apr 12 22:18:26 linux01 sshd[3129]: Accepted password for offsec from 192.168.160.50 port 49648 ssh2
+Apr 12 22:18:26 linux01 sshd[3129]: pam_unix(sshd:session): session opened for user offsec by (uid=0)
+Apr 12 22:18:26 linux01 systemd-logind[783]: New session 89 of user offsec.
+Apr 12 22:18:29 linux01 sshd[3187]: Received disconnect from 192.168.160.50 port 49648:11: disconnected by user
+Apr 12 22:18:29 linux01 sshd[3187]: Disconnected from user offsec 192.168.160.50 port 49648
+Apr 12 22:18:29 linux01 sshd[3129]: pam_unix(sshd:session): session closed for user offsec
+Apr 12 22:18:29 linux01 systemd-logind[783]: Session 89 logged out. Waiting for processes to exit.
+Apr 12 22:18:29 linux01 systemd-logind[783]: Removed session 89.
+Apr 12 22:19:01 linux01 CRON[3196]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:19:01 linux01 CRON[3196]: pam_unix(cron:session): session closed for user root
+Apr 12 22:19:17 linux01 sshd[3040]: Received signal 15; terminating.
+Apr 12 22:19:17 linux01 sshd[3203]: Server listening on 0.0.0.0 port 22.
+Apr 12 22:19:17 linux01 sshd[3203]: Server listening on :: port 22.
+Apr 12 22:19:22 linux01 sshd[3204]: Connection closed by authenticating user offsec 192.168.160.50 port 49650 [preauth]
+Apr 12 22:20:01 linux01 CRON[3208]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:20:01 linux01 CRON[3208]: pam_unix(cron:session): session closed for user root
+Apr 12 22:21:01 linux01 CRON[3213]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:21:01 linux01 CRON[3213]: pam_unix(cron:session): session closed for user root
+Apr 12 22:21:11 linux01 sshd[3203]: Received signal 15; terminating.
+Apr 12 22:21:11 linux01 sshd[3218]: debug1: Set /proc/self/oom_score_adj from 0 to -1000
+Apr 12 22:21:11 linux01 sshd[3218]: debug1: Bind to port 22 on 0.0.0.0.
+Apr 12 22:21:11 linux01 sshd[3218]: Server listening on 0.0.0.0 port 22.
+Apr 12 22:21:11 linux01 sshd[3218]: debug1: Bind to port 22 on ::.
+Apr 12 22:21:11 linux01 sshd[3218]: Server listening on :: port 22.
+Apr 12 22:21:16 linux01 sshd[3218]: debug1: Forked child 3219.
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Set /proc/self/oom_score_adj to 0
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: rexec start in 5 out 5 newsock 5 pipe 7 sock 8
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: inetd sockets after dupping: 4, 4
+Apr 12 22:21:16 linux01 sshd[3219]: Connection from 192.168.160.50 port 49652 on 192.168.160.12 port 22 rdomain ""
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.2
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Remote protocol version 2.0, remote software version OpenSSH_8.4p1 Debian-6
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: match: OpenSSH_8.4p1 Debian-6 pat OpenSSH* compat 0x04000000
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: permanently_set_uid: 126/65534 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: SSH2_MSG_KEXINIT sent [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: SSH2_MSG_KEXINIT received [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: kex: algorithm: curve25519-sha256 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: kex: host key algorithm: ecdsa-sha2-nistp256 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: rekey out after 134217728 blocks [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: SSH2_MSG_NEWKEYS sent [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: SSH2_MSG_NEWKEYS received [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: rekey in after 134217728 blocks [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: KEX done [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: userauth-request for user offsec service ssh-connection method none [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: attempt 0 failures 0 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: PAM: initializing for "offsec"
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: PAM: setting PAM_RHOST to "192.168.160.50"
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: PAM: setting PAM_TTY to "ssh"
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: userauth-request for user offsec service ssh-connection method publickey [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: attempt 1 failures 0 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: userauth_pubkey: test pkalg ssh-ed25519 pkblob ED25519 SHA256:Sx5O7zj6FqY4L4QGGsLgCQT678QjZDw42n4S1CJQc6Q [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: trying public key file /home/offsec/.ssh/authorized_keys
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: fd 5 clearing O_NONBLOCK
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: restore_uid: 0/0
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: trying public key file /home/offsec/.ssh/authorized_keys2
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Could not open authorized keys '/home/offsec/.ssh/authorized_keys2': No such file or directory
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: restore_uid: 0/0
+Apr 12 22:21:16 linux01 sshd[3219]: Failed publickey for offsec from 192.168.160.50 port 49652 ssh2: ED25519 SHA256:Sx5O7zj6FqY4L4QGGsLgCQT678QjZDw42n4S1CJQc6Q
+Apr 12 22:21:16 linux01 sshd[3219]: Connection closed by authenticating user offsec 192.168.160.50 port 49652 [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: do_cleanup [preauth]
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: monitor_read_log: child log fd closed
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: do_cleanup
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: PAM: cleanup
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: Killing privsep child 3220
+Apr 12 22:21:16 linux01 sshd[3219]: debug1: audit_event: unhandled event 12
+Apr 12 22:21:16 linux01 sshd[3218]: debug1: main_sigchld_handler: Child exited
+Apr 12 22:22:01 linux01 CRON[3224]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 22:22:01 linux01 CRON[3224]: pam_unix(cron:session): session closed for user root

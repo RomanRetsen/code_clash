@@ -5,7 +5,8 @@ import time
 list_to_sort = [random.randint(1,100) for _ in range(10000)]
 list_for_buble_sort = list_to_sort[:]
 list_for_insert_sort = list_to_sort[:]
-list_for_merge_sort = list_to_sort[:]
+list_for_merge_sort_v1 = list_to_sort[:]
+list_for_merge_sort_v2 = list_to_sort[:]
 list_for_native_sort = list_to_sort[:]
 list_for_selection_sort = list_to_sort[:]
 list_for_quicksort_v1 = list_to_sort[:]
@@ -37,14 +38,14 @@ def select_sort(input_list):
 
 
 #merge sorting
-def merge_sorting(input_list):
+def merge_sorting_v1(input_list):
     if len(input_list) > 1:
         # print('Splitting ', input_list)
         middle_mark = len(input_list) // 2
         left_list = input_list[:middle_mark]
         right_list = input_list[middle_mark:]
-        merge_sorting(left_list)
-        merge_sorting(right_list)
+        merge_sorting_v1(left_list)
+        merge_sorting_v1(right_list)
 
         left_index = right_index = general_index = 0
 
@@ -69,6 +70,44 @@ def merge_sorting(input_list):
             general_index += 1
         # print('list after merging', input_list)
 
+def merge_sorting_v2(input_list):
+    recursive_split_array(input_list, 0, len(input_list))
+    # return input_list
+
+def recursive_split_array(input_array_chunk, start, end):
+    # print(f"start {start}; end {end}")
+    if (end - start) > 1:
+        middle = (start + end) // 2
+        recursive_split_array(input_array_chunk, start, middle)
+        recursive_split_array(input_array_chunk, middle,  end)
+        stitch_array(input_array_chunk, start, middle, end)
+
+def stitch_array(input_array_chunk, start, middle, end):
+    left_list = input_array_chunk[start:middle]
+    right_list = input_array_chunk[middle:end]
+    left_list_length = len(left_list)
+    right_list_length = len(right_list)
+    general_index = start
+    left_index = right_index= 0
+    while left_index < left_list_length and right_index < right_list_length:
+        if left_list[left_index] < right_list[right_index]:
+            # print(f"general index {general_index} {input_array_chunk}")
+            input_array_chunk[general_index] = left_list[left_index]
+            left_index += 1
+            general_index += 1
+        else:
+            # print(f"general index {general_index} {input_array_chunk}")
+            input_array_chunk[general_index] = right_list[right_index]
+            right_index += 1
+            general_index += 1
+    while left_index < left_list_length:
+        input_array_chunk[general_index] = left_list[left_index]
+        left_index += 1
+        general_index += 1
+    while right_index < right_list_length:
+        input_array_chunk[general_index] = right_list[right_index]
+        general_index += 1
+        right_index += 1
 
 def quicksort_v1(input_list):
     if len(input_list) < 2:
@@ -167,9 +206,14 @@ print(f'insert sorting operation counter {insert_operation_counter}. time spent 
 # print(list_for_insert_sort)
 
 t3 = time.time()
-merge_sorting(list_for_merge_sort)
+merge_sorting_v1(list_for_merge_sort_v1)
 t4 = time.time()
-print(f'merge sorting operation counter. time spent {t4-t3}')
+print(f'merge sorting v1 operation counter. time spent {t4-t3}')
+
+t33 = time.time()
+merge_sorting_v2(list_for_merge_sort_v2)
+t44 = time.time()
+print(f'merge sorting v2 operation counter. time spent {t44-t33}')
 # print(list_for_merge_sort)
 
 #selection sort

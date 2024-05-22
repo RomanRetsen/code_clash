@@ -173,20 +173,20 @@ t1 = time.time()
 print(f'native sorting operation counter. time spent {t1-t0}')
 # print(list_for_native_sort)
 
-t1 = time.time()
-buble_operation_counter = 0
-for i in range(len(list_for_buble_sort)):
-    needed_to_correct = False
-    for j in range(len(list_for_buble_sort) - i - 1):
-        buble_operation_counter += 1
-        if list_for_buble_sort[j] > list_for_buble_sort[j + 1]:
-            list_for_buble_sort[j + 1], list_for_buble_sort[j] = list_for_buble_sort[j], list_for_buble_sort[j + 1]
-            needed_to_correct = True
-    if not needed_to_correct:
-        break
-t2 = time.time()
+# t1 = time.time()
+# buble_operation_counter = 0
+# for i in range(len(list_for_buble_sort)):
+#     needed_to_correct = False
+#     for j in range(len(list_for_buble_sort) - i - 1):
+#         buble_operation_counter += 1
+#         if list_for_buble_sort[j] > list_for_buble_sort[j + 1]:
+#             list_for_buble_sort[j + 1], list_for_buble_sort[j] = list_for_buble_sort[j], list_for_buble_sort[j + 1]
+#             needed_to_correct = True
+#     if not needed_to_correct:
+#         break
+# t2 = time.time()
+# print(f'buble sorting operation counter {buble_operation_counter}. time spent {t2-t1}')
 
-print(f'buble sorting operation counter {buble_operation_counter}. time spent {t2-t1}')
 # print(list_for_buble_sort)
 
 t2 = time.time()

@@ -70,6 +70,7 @@ def merge_sorting_v1(input_list):
             general_index += 1
         # print('list after merging', input_list)
 
+<<<<<<< HEAD
 def merge_sorting_v2(input_list):
     recursive_split_array(input_list, 0, len(input_list))
     # return input_list
@@ -108,6 +109,8 @@ def stitch_array(input_array_chunk, start, middle, end):
         input_array_chunk[general_index] = right_list[right_index]
         general_index += 1
         right_index += 1
+=======
+>>>>>>> 31ab71bbb01df2d037d554e41ada806548678d3f
 
 def quicksort_v1(input_list):
     if len(input_list) < 2:
@@ -173,6 +176,7 @@ t1 = time.time()
 print(f'native sorting operation counter. time spent {t1-t0}')
 # print(list_for_native_sort)
 
+<<<<<<< HEAD
 # t1 = time.time()
 # buble_operation_counter = 0
 # for i in range(len(list_for_buble_sort)):
@@ -187,6 +191,22 @@ print(f'native sorting operation counter. time spent {t1-t0}')
 # t2 = time.time()
 # print(f'buble sorting operation counter {buble_operation_counter}. time spent {t2-t1}')
 
+=======
+t1 = time.time()
+buble_operation_counter = 0
+for i in range(len(list_for_buble_sort)):
+    needed_to_correct = False
+    for j in range(len(list_for_buble_sort) - i - 1):
+        buble_operation_counter += 1
+        if list_for_buble_sort[j] > list_for_buble_sort[j + 1]:
+            list_for_buble_sort[j + 1], list_for_buble_sort[j] = list_for_buble_sort[j], list_for_buble_sort[j + 1]
+            needed_to_correct = True
+    if not needed_to_correct:
+        break
+t2 = time.time()
+
+print(f'buble sorting operation counter {buble_operation_counter}. time spent {t2-t1}')
+>>>>>>> 31ab71bbb01df2d037d554e41ada806548678d3f
 # print(list_for_buble_sort)
 
 t2 = time.time()
@@ -206,6 +226,7 @@ print(f'insert sorting operation counter {insert_operation_counter}. time spent 
 # print(list_for_insert_sort)
 
 t3 = time.time()
+<<<<<<< HEAD
 merge_sorting_v1(list_for_merge_sort_v1)
 t4 = time.time()
 print(f'merge sorting v1 operation counter. time spent {t4-t3}')
@@ -214,6 +235,11 @@ t33 = time.time()
 merge_sorting_v2(list_for_merge_sort_v2)
 t44 = time.time()
 print(f'merge sorting v2 operation counter. time spent {t44-t33}')
+=======
+merge_sorting(list_for_merge_sort)
+t4 = time.time()
+print(f'merge sorting operation counter. time spent {t4-t3}')
+>>>>>>> 31ab71bbb01df2d037d554e41ada806548678d3f
 # print(list_for_merge_sort)
 
 #selection sort

@@ -1,26 +1,13 @@
-import re
-import string
+# mean
+the_list2 = [10,23,10,19,21,23,21,17, 20.2]
 
-the_value = input("Entered password")
-l_the_value = len(the_value)
-points = 0
+the_list2_s = (sorted(the_list2))
 
-if l_the_value < 8:
-    points += -1
-elif l_the_value < 12:
-    points += 2
-elif l_the_value < 15:
-    points += 3
+print(f"Sorted {the_list2_s}")
+if len(the_list2_s) % 2 == 0:
+    print(sum(the_list2_s[len(the_list2_s)//2-1:len(the_list2_s)//2+1]) // 2)
 else:
-    points += 4
+    print(the_list2_s[len(the_list2_s)//2])
 
-if any([x for x in the_value if x in string.ascii_lowercase]):
-    points += 1
-if any([x for x in the_value if x in string.ascii_uppercase]):
-    points += 1
-if any([x for x in the_value if x in string.digits]):
-    points += 1
-if any([x for x in the_value if x in "!#$%^&"]):
-    points
 
-print(f"Points: {points}")
+

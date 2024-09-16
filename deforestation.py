@@ -1,9 +1,20 @@
 """
-In the magical 2-dimensional world everything has a position on the ground and a height. You are the head of the forestry department and you are teaching the new wood cutters. With your experience and tenure comes wisdom. You know very well how hard it is to cut a tree, let alone an entire forest. The trick is when a tree falls and touches another, that tree also falls. Do it right and you will have a chain reaction.
+In the magical 2-dimensional world everything has a position on the ground and a height.
+You are the head of the forestry department and you are teaching the new wood cutters.
+With your experience and tenure comes wisdom. You know very well how hard it is to cut a tree, let alone an entire forest.
+The trick is when a tree falls and touches another, that tree also falls.
+Do it right and you will have a chain reaction.
 
-You are given the numberOfTrees in the forest, each with it's position and height. When a tree is cut down it always falls to the right. Trees don't have widths so they stack on the ground indefinitely. A tree knocks over another one when any point of the first tree during fall touches any point of the second tree above it's trunk (the point where it touches the ground). Output the minimum number of trees need to be cut down for the deforestation.
+You are given the numberOfTrees in the forest, each with it's position and height.
+When a tree is cut down it always falls to the right.
+Trees don't have widths so they stack on the ground indefinitely.
+A tree knocks over another one when any point of the first tree during fall touches any point of the second tree above it's trunk (the point where it touches the ground).
+One tree can knocks out few trees to the right, if its tall enough and trees to the right are close enough!!!
+Output the minimum number of trees need to be cut down for the deforestation.
 
-Example: You are given numberOfTrees = 3 trees with (1, 1), (3, 4), (6, 2) as their (position, height) pairs. The forest looks like this (except trees touch the ground).
+Example: You are given numberOfTrees = 3 trees with (1, 1), (3, 4), (6, 2) as their (position, height) pairs.
+The forest looks like this (except trees touch the ground).
+
 
 
   │
@@ -14,9 +25,12 @@ Example: You are given numberOfTrees = 3 trees with (1, 1), (3, 4), (6, 2) as th
 123456
 
 
-When you cut down the first tree it won't touch the second one, so that's your first cut. But when you cut down the second one it will knock down the third. So you have to cut 2 trees and you are finished.
+When you cut down the first tree it won't touch the second one, so that's your first cut.
+But when you cut down the second one it will knock down the third. So you have to cut 2 trees and you are finished.
 
-Example 2: You have 2 trees with with (1, 2) and (3, 2) as their (position, height) pairs. When you cut the first tree, the fallen tree will occupy the space between 1 and 3 precisely and therefore not touch the second tree above it's trunk. You need 2 cuts for complete deforestation in this case.
+Example 2: You have 2 trees with with (1, 2) and (3, 2) as their (position, height) pairs.
+When you cut the first tree, the fallen tree will occupy the space between 1 and 3 precisely and therefore not touch the second tree above it's trunk.
+You need 2 cuts for complete deforestation in this case.
 Input
 Line 1: numberOfTrees, an integer denoting the number of trees in the forest.
 Next numberOfTrees Lines: position and height, two space separated integer for position of the tree on the ground and it's height. Input is ordered by position.

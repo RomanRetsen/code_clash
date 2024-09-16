@@ -1,14 +1,26 @@
-import sys
-import math
+import re
+import string
 
-# Auto-generated code below aims at helping you parse
-# the standard input according to the problem statement.
+the_value = input("Entered password")
+l_the_value = len(the_value)
+points = 0
 
-from_num, end_num = input().split()
-operator = input()
+if l_the_value < 8:
+    points += -1
+elif l_the_value < 12:
+    points += 2
+elif l_the_value < 15:
+    points += 3
+else:
+    points += 4
 
-print(operator, " ".join([str(x) for x in range(int(from_num), int(end_num) + 1)]))
-for i in range(int(from_num), int(end_num) + 1):
-    # print(" ".join([f"{str(i)}{operator}{str(x)}" for x in range(int(from_num), int(end_num) + 1)]))
-    print(str(i), " ".join([str(eval(f"{str(i)}{operator}{str(x)}")) for x in range(int(from_num), int(end_num) + 1)]))
+if any([x for x in the_value if x in string.ascii_lowercase]):
+    points += 1
+if any([x for x in the_value if x in string.ascii_uppercase]):
+    points += 1
+if any([x for x in the_value if x in string.digits]):
+    points += 1
+if any([x for x in the_value if x in "!#$%^&"]):
+    points
 
+print(f"Points: {points}")

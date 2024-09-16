@@ -17,6 +17,9 @@ In this schematic, there are two gears. The first is in the top left; it has par
 The second gear is in the lower right; its gear ratio is 451490. (The * adjacent to 617 is not a gear because it is only adjacent to one part number.)
 Adding up all of the gear ratios produces 467835.
 What is the sum of all of the gear ratios in your engine schematic?
+
+Answer to large example - 79026871
+
 """
 
 the_list = []
@@ -54,7 +57,7 @@ height = len(the_list)
 width = len(the_list[0])
 total = 0
 the_gear_dict = {} # key - (h,w). value - list of numbers
-the_numbers_dict = {} # key - (h,w, value). value - list of neighbors
+the_numbers_dict = {} # key - (h,w, digit). value - list of neighbors
 single_number_holder = []
 h = 0
 
@@ -93,7 +96,9 @@ for gear in the_gear_dict:
     if len(the_gear_dict[gear]) > 1:
         total += the_gear_dict[gear][0] * the_gear_dict[gear][1]
 
-print(f"the_list {the_list}")
-print(f"gears {the_gear_dict}")
-print(f"numbers {the_numbers_dict}")
+# print(f"the_list {the_list}")
+# print(f"gears {the_gear_dict}")
+# print(f"numbers {the_numbers_dict}")
 print(total)
+
+

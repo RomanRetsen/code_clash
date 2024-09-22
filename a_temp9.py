@@ -1,6 +1,6 @@
-import iter
+from pwn import *
 
+e = ELF('/home/romio/Training_folder/C_PROJECTS/simple')
 
-the_str = "123"
-
-print(itertools.)
+print(e.address)
+print(e.entry)

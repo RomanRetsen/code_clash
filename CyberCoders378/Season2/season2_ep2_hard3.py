@@ -65,9 +65,19 @@ unchecked_vertex = [x for x in the_graph.vertex_data]
 while len(unchecked_vertex):
     current = min(unchecked_vertex, key=lambda x:the_graph.vertex_data[x][2])
     the_graph.vertex_data[current][0] = True
-    print(the_graph.vertex_data[current])
-    break
+    # print(the_graph.vertex_data[current])
+    for neighbour in the_graph.vertex_data[current][3]:
+        # print(neighbour)
+        if the_graph.vertex_data[neighbour][0] == True:
+            continue
+        new_distance = the_graph.vertex_data[current][2] + the_graph.edge_data[current + neighbour]
+        if new_distance < the_graph.vertex_data[neighbour][2]:
+            the_graph.vertex_data[neighbour][2] = new_distance
+            the_graph.vertex_data[neighbour][1] = current
+        # print(the_graph.vertex_data[neighbour])
     unchecked_vertex.clear()
     unchecked_vertex = [x for x in the_graph.vertex_data if not the_graph.vertex_data[x][0]]
 
-print(len(the_graph.vertex_data))
+print(the_graph.vertex_data[(99, 99)])
+
+

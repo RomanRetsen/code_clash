@@ -10,7 +10,8 @@ You cannot go diagonally. You have to count the distance as manhattan_distance o
 
 The final answer to give as a length of the path.
 '''
-
+import numpy as np
+import matplotlib.pyplot as plt
 import math
 
 
@@ -80,4 +81,14 @@ while len(unchecked_vertex):
 
 print(the_graph.vertex_data[(99, 99)])
 
+end = (99,99)
+the_map[99][99] = -1
+while not (path_element := the_graph.vertex_data[end][1]) == (0,0):
+    the_map[path_element[0]][path_element[1]] = -1
+    end = path_element
+else:
+    the_map[0][0] = -1
 
+H = np.array(the_map)
+plt.imshow(H, interpolation='none')
+plt.show()

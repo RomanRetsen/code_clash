@@ -26,48 +26,48 @@ class Graph:
         self.edge_data = {}
         self.size = size
         self.vertex_data = {}
-        # self.vertex_data = [""] * size
-        # self.adj_matrix = [[0] * size for _ in range(size)]
 
     def add_edge(self, s_x, s_y, d_x, d_y, weight):
         self.edge_data[(s_x, s_y, d_x, d_y)] = weight
 
-    def add_vertex_data(self, x,y):
-        self.vertex_data[(i, y)] = (False, None, math.inf)
-        # if 0 <= x < self.size and 0 <= 0 < self.size:
-            # self.vertex_data[f"{str(i)};{str(y)}"] =  f"{str(i)};{str(y)}"
-            # self.vertex_data[vertex] = data
+    def add_vertex_data(self, x, y):
+        self.vertex_data[(i, y)] = [False, None, math.inf, []]
+
 
 the_graph = Graph(the_l * the_l)
 
 for i in range(the_l):
     for y in range(the_l):
         if the_map[i][y] < 1:
-            the_graph.add_vertex_data(i, y, )
+            the_graph.add_vertex_data(i, y)
 
-the_graph.vertex_data[(0,0)] = (True, (0,0), 0)
+the_graph.vertex_data[(0,0)][2] = 0
 
 
 for vertex in the_graph.vertex_data:
     if (vertex[0]-1, vertex[1]) in  the_graph.vertex_data:
         the_graph.add_edge(vertex[0], vertex[1], vertex[0]-1, vertex[1], the_map[vertex[0]-1][vertex[1]])
+        the_graph.vertex_data[vertex][3].append((vertex[0]-1, vertex[1]))
     if (vertex[0], vertex[1]-1) in  the_graph.vertex_data:
         the_graph.add_edge(vertex[0], vertex[1], vertex[0], vertex[1]-1, the_map[vertex[0]][vertex[1]-1])
+        the_graph.vertex_data[vertex][3].append((vertex[0], vertex[1]-1))
     if (vertex[0]+1, vertex[1]) in  the_graph.vertex_data:
         the_graph.add_edge(vertex[0], vertex[1], vertex[0]+1, vertex[1], the_map[vertex[0]+1][vertex[1]])
+        the_graph.vertex_data[vertex][3].append((vertex[0] + 1, vertex[1]))
     if (vertex[0], vertex[1]+1) in  the_graph.vertex_data:
         the_graph.add_edge(vertex[0], vertex[1], vertex[0], vertex[1]+1, the_map[vertex[0]][vertex[1]+1])
+        the_graph.vertex_data[vertex][3].append((vertex[0], vertex[1]+1))
+
 
 # print(len([x for x in the_graph.vertex_data if not the_graph.vertex_data[x][0]]))
 # print(max([x for x in the_graph.vertex_data if the_graph.vertex_data[x][0]], key=lambda x:the_graph.vertex_data[x][2]))
 unchecked_vertex = [x for x in the_graph.vertex_data]
 while len(unchecked_vertex):
     current = min(unchecked_vertex, key=lambda x:the_graph.vertex_data[x][2])
-    the_graph.vertex_data[current] = (True, )
-    print(current)
+    the_graph.vertex_data[current][0] = True
+    print(the_graph.vertex_data[current])
     break
     unchecked_vertex.clear()
     unchecked_vertex = [x for x in the_graph.vertex_data if not the_graph.vertex_data[x][0]]
 
 print(len(the_graph.vertex_data))
-

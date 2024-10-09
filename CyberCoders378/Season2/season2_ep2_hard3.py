@@ -108,12 +108,18 @@ def print_graph(the_graph):
     plt.show()
 
 # BACKTRACKING
+all_direction = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 def is_valid_step(x, y, the_map, l_map):
     if 0 <= x < l_map and 0 <= y < l_map and the_map[x][y] < 1:
         return True
     return False
 
-def find_path_backtracking(x, y, the_map, l_map, )
+def find_path_backtracking(x, y, the_map, l_map, the_path, current_path):
+    if x == l_map-1 and y == l_map-1:
+        the_path.append(current_path)
+        return
+
+
 
 
 if __name__ == "__main__":

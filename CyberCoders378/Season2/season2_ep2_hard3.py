@@ -109,22 +109,42 @@ def print_graph(the_graph):
 
 # BACKTRACKING
 all_direction = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+
 def is_valid_step(x, y, the_map, l_map):
     if 0 <= x < l_map and 0 <= y < l_map and the_map[x][y] < 1:
         return True
     return False
 
-def find_path_backtracking(x, y, the_map, l_map, the_path, current_path):
+
+def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current_path):
     if x == l_map-1 and y == l_map-1:
         the_path.append(current_path)
         return
+    if is_valid_step(x, y, the_map, l_map):
+        print(f"I'm am at {(x,y)}")
+        if solution_map[x][y] == 1:
+            return False
+        solution_map[x][y] = 1
+        the_path.append((x,y))
+        for direction in all_direction:
+            find_path_backtracking(direction[0], direction[1], l_map, the_map, \
+                                   solution_map, the_path, current_path)
+        solution_map[x][y] = 2
 
+
+def find_path(the_map):
+    l_map = len(the_map)
+    solution_matrix = [[0 for _ in range(l_map)] for _ in range(l_map)]
+    the_path = []
+    if find_path_backtracking(0, 0, l_map, the_map, solution_matrix, the_path, (0,0)):
+        print(solution_matrix)
 
 
 
 if __name__ == "__main__":
     the_map = load_map("map.txt")
     # using Dijkstra
+    """
     t1 = time.time()
     the_graph = generate_graph(the_map)
     find_path_v1_list(the_graph)
@@ -132,7 +152,9 @@ if __name__ == "__main__":
     print(f"Time needed to find path{t1-t0}")
     print(the_graph.vertex_data[(99, 99)])
     print_graph(the_graph)
+    """
     # using backtracking
+    find_path(the_map)
 
 
 

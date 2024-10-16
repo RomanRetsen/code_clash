@@ -1,7 +1,8 @@
 add 555
-pop
-pop
+pop 2
+pop 2
 add 1
 add 1000000000
 add 500000
-pop
+pop 1
+pop 3

@@ -15,6 +15,8 @@ import matplotlib.pyplot as plt
 import math
 import heapq
 import time
+import sys
+from collections import namedtuple
 
 class Graph:
     def __init__(self):
@@ -29,11 +31,11 @@ class Graph:
 
 
 def load_map(file):
+    # the_map = [[0 for _ in range(38)] for _ in range(38)]
     the_map = []
     with open(file) as file:
         for line in file:
             the_map.append([float(x) for x in line.strip().split()])
-    print(*the_map, sep="\n")
     return the_map
 
 def generate_graph(the_map):
@@ -110,38 +112,90 @@ def print_graph(the_graph):
 # BACKTRACKING
 all_direction = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
+class BestPath:
+    def __init__(self, value, bestpath):
+        self.value = value
+        self.bestpath = bestpath
+
 def is_valid_step(x, y, the_map, l_map):
-    if 0 <= x < l_map and 0 <= y < l_map and the_map[x][y] < 1:
+    if 0 <= x < l_map and 0 <= y < l_map and the_map[x][y] < 1 and the_map[x][y] < 1:
         return True
     return False
 
+def calculate_path_value(the_map, the_path):
+    the_total = 0
+    for step in the_path:
+        the_total += the_map[step[0]][step[1]]
+    return the_total
 
-def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current_path):
-    if x == l_map-1 and y == l_map-1:
+
+def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current_path, level, reset, best_path):
+    if x == l_map-1 and y == l_map-1 and reset:
         the_path.append(current_path)
-        return
+        print(f"the_path : {the_path}")
+        calc_value = calculate_path_value(the_map, the_path)
+        print(f"This path value is {calc_value}")
+        if best_path.value > calc_value:
+            best_path.value = calc_value
+            best_path.bestpath = the_path[:]
+        del the_path[-1]
+        the_path.append((-1, -1))
+        return False
     if is_valid_step(x, y, the_map, l_map):
-        print(f"I'm am at {(x,y)}")
+        # print(f"I'm am at {(x,y)} on level {level}")
         if solution_map[x][y] == 1:
+            # print(f"Have to false out at {x}-{y}")
             return False
+        if solution_map[x][y] == 2 and not reset:
+            # print(f"2 and reset is false at {x}-{y}")
+            return False
+
+            # print(f"2!!!!!!!!!!{x};{y}")
+
+        if solution_map[x][y] == 0:
+            reset = True
         solution_map[x][y] = 1
+        if (x,y) in the_path:
+            input("double")
         the_path.append((x,y))
         for direction in all_direction:
-            find_path_backtracking(direction[0], direction[1], l_map, the_map, \
-                                   solution_map, the_path, current_path)
+            current_path = (x + direction[0], y + direction[1])
+            if find_path_backtracking(x + direction[0], y + direction[1], l_map, the_map, \
+                                   solution_map, the_path, current_path, level+1, reset, best_path):
+                return True
+            if the_path[-1] == (-1,-1):
+                reset = False
+                del the_path[-1]
         solution_map[x][y] = 2
+        del the_path[-1]
+        return False
+    return False
 
+def display_steps(l_map, solution_matrix, the_path):
+    solution_matrix_copy = solution_matrix[:]
+    for number, step in enumerate(the_path, 10):
+        solution_matrix_copy[step[0]][step[1]] = number
+    for i in range(l_map):
+        print(*[f"{solution_matrix_copy[i][x]}".center(3, " ") if solution_matrix_copy[i][x] > 4 \
+                    else f"{solution_matrix_copy[i][x]}".center(3, " ") for x in range(l_map)], sep=" ")
 
 def find_path(the_map):
-    l_map = len(the_map)
+    best_path = BestPath(math.inf, None)
+    # l_map = len(the_map)
+    l_map = 8
     solution_matrix = [[0 for _ in range(l_map)] for _ in range(l_map)]
     the_path = []
-    if find_path_backtracking(0, 0, l_map, the_map, solution_matrix, the_path, (0,0)):
-        print(solution_matrix)
+    if find_path_backtracking(0, 0, l_map, the_map, solution_matrix, the_path, (0,0), 0, True, best_path):
+        print(the_path)
+        display_steps(l_map, solution_matrix, the_path)
+        return True
+    else:
+        return best_path
 
 
 
 if __name__ == "__main__":
+    sys.setrecursionlimit(2000)
     the_map = load_map("map.txt")
     # using Dijkstra
     """
@@ -154,7 +208,10 @@ if __name__ == "__main__":
     print_graph(the_graph)
     """
     # using backtracking
-    find_path(the_map)
+    best_path = find_path(the_map)
+    print(f"Best path value {best_path.value}")
+    print(f"Best path {best_path.bestpath}")
+
 
 
 

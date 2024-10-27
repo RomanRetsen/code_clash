@@ -14,7 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import heapq
-import time
+from time import time
 import sys
 from collections import namedtuple
 
@@ -132,9 +132,9 @@ def calculate_path_value(the_map, the_path):
 def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current_path, level, reset, best_path):
     if x == l_map-1 and y == l_map-1 and reset:
         the_path.append(current_path)
-        print(f"the_path : {the_path}")
+        # print(f"the_path : {the_path}")
         calc_value = calculate_path_value(the_map, the_path)
-        print(f"This path value is {calc_value}")
+        # print(f"This path value is {calc_value}")
         if best_path.value > calc_value:
             best_path.value = calc_value
             best_path.bestpath = the_path[:]
@@ -143,14 +143,14 @@ def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current
         return False
     if is_valid_step(x, y, the_map, l_map):
         # print(f"I'm am at {(x,y)} on level {level}")
-        if solution_map[x][y] == 1:
+        if solution_map[x][y] == 1 or calculate_path_value(the_map, the_path) >= best_path.value:
             # print(f"Have to false out at {x}-{y}")
             return False
         if solution_map[x][y] == 2 and not reset:
-            # print(f"2 and reset is false at {x}-{y}")
-            return False
-
-            # print(f"2!!!!!!!!!!{x};{y}")
+            print(f"2 and reset is False at {x}-{y}")
+        # if solution_map[x][y] == 2 and reset:
+        #     print(f"2 and reset is True at {x}-{y}")
+            # return False
 
         if solution_map[x][y] == 0:
             reset = True
@@ -182,7 +182,7 @@ def display_steps(l_map, solution_matrix, the_path):
 def find_path(the_map):
     best_path = BestPath(math.inf, None)
     # l_map = len(the_map)
-    l_map = 8
+    l_map = 100
     solution_matrix = [[0 for _ in range(l_map)] for _ in range(l_map)]
     the_path = []
     if find_path_backtracking(0, 0, l_map, the_map, solution_matrix, the_path, (0,0), 0, True, best_path):
@@ -208,28 +208,8 @@ if __name__ == "__main__":
     print_graph(the_graph)
     """
     # using backtracking
+    t1 = time()
     best_path = find_path(the_map)
     print(f"Best path value {best_path.value}")
     print(f"Best path {best_path.bestpath}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(f"Time taken {time()-t1}")

@@ -1,0 +1,1 @@
+print(sum([int(eval(f"{x.strip().split(',')[0]}{x.strip().split(',')[2]}{x.strip().split(',')[1]}")) for x in open(r"C:\Container\Downloads\4b.txt")]))

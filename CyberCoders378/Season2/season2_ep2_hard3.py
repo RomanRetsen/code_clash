@@ -111,6 +111,7 @@ def print_graph(the_graph):
 
 # BACKTRACKING
 all_direction = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+all_direction2 = [(0, 1), (1, 0), (-1, 0), (0, -1)]
 
 class BestPath:
     def __init__(self, value, bestpath):
@@ -132,9 +133,9 @@ def calculate_path_value(the_map, the_path):
 def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current_path, level, reset, best_path):
     if x == l_map-1 and y == l_map-1 and reset:
         the_path.append(current_path)
-        # print(f"the_path : {the_path}")
+        print(f"the_path : {the_path}")
         calc_value = calculate_path_value(the_map, the_path)
-        # print(f"This path value is {calc_value}")
+        print(f"This path value is {calc_value}; BUT current best is {best_path.value}")
         if best_path.value > calc_value:
             best_path.value = calc_value
             best_path.bestpath = the_path[:]
@@ -147,10 +148,11 @@ def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current
             # print(f"Have to false out at {x}-{y}")
             return False
         if solution_map[x][y] == 2 and not reset:
-            print(f"2 and reset is False at {x}-{y}")
+            # print(f"2 and reset is False at {x}-{y}")
+            return False
         # if solution_map[x][y] == 2 and reset:
         #     print(f"2 and reset is True at {x}-{y}")
-            # return False
+            # return Fals
 
         if solution_map[x][y] == 0:
             reset = True
@@ -158,14 +160,24 @@ def find_path_backtracking(x, y, l_map, the_map, solution_map, the_path, current
         if (x,y) in the_path:
             input("double")
         the_path.append((x,y))
-        for direction in all_direction:
-            current_path = (x + direction[0], y + direction[1])
-            if find_path_backtracking(x + direction[0], y + direction[1], l_map, the_map, \
-                                   solution_map, the_path, current_path, level+1, reset, best_path):
-                return True
-            if the_path[-1] == (-1,-1):
-                reset = False
-                del the_path[-1]
+        if x >= y:
+            for direction in all_direction2:
+                current_path = (x + direction[0], y + direction[1])
+                if find_path_backtracking(x + direction[0], y + direction[1], l_map, the_map, \
+                                       solution_map, the_path, current_path, level+1, reset, best_path):
+                    return True
+                if the_path[-1] == (-1,-1):
+                    reset = False
+                    del the_path[-1]
+        else:
+            for direction in all_direction:
+                current_path = (x + direction[0], y + direction[1])
+                if find_path_backtracking(x + direction[0], y + direction[1], l_map, the_map, \
+                                          solution_map, the_path, current_path, level + 1, reset, best_path):
+                    return True
+                if the_path[-1] == (-1, -1):
+                    reset = False
+                    del the_path[-1]
         solution_map[x][y] = 2
         del the_path[-1]
         return False
@@ -182,7 +194,7 @@ def display_steps(l_map, solution_matrix, the_path):
 def find_path(the_map):
     best_path = BestPath(math.inf, None)
     # l_map = len(the_map)
-    l_map = 100
+    l_map = 16
     solution_matrix = [[0 for _ in range(l_map)] for _ in range(l_map)]
     the_path = []
     if find_path_backtracking(0, 0, l_map, the_map, solution_matrix, the_path, (0,0), 0, True, best_path):
@@ -197,6 +209,8 @@ def find_path(the_map):
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     the_map = load_map("map.txt")
+    # print(the_map[22][22])
+    # exit(1)
     # using Dijkstra
     """
     t1 = time.time()
@@ -213,3 +227,19 @@ if __name__ == "__main__":
     print(f"Best path value {best_path.value}")
     print(f"Best path {best_path.bestpath}")
     print(f"Time taken {time()-t1}")
+
+'''
+10 - 1.27
+11 - 3.226
+12 - 7.9 (1.57)
+13 - 39.68 (7.28)
+14 - 67.41 (11sec; best value 10.53)
+15 - 117 (57)
+16 - 490 - 8 mins (161)
+17 - ???
+18 - 632 (222sec; 13.66)
+19 - 2340 (583)
+20 - 6585
+21 - 6404 - 5782
+23 - 2757
+'''

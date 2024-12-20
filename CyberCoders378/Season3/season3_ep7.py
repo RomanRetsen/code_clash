@@ -1,8 +1,13 @@
 import heapq
+import math
 import os
 import cv2
+# import matplotlib.pyplot as plt
+# import matplotlib.patches as patches
+import matplotlib
+matplotlib.use('tkagg')
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+import numpy as np
 from matplotlib.collections import PatchCollection
 from Tile import Tile
 
@@ -36,7 +41,7 @@ def visualize_map(map_tiles, width_tiles, height_tiles, path=None):
 #         width : Width of the whole maze
 #         height : Height of the whole maze
 # Output : 2D array of Tile objects
-def build_graph(img_gray, width, height) -> list[list[Tile]]:
+# def build_graph(img_gray, width, height) -> list[list[Tile]]:
     # load all 4 wall##.png as grayscaled images using cv2
 
     # Initialize a list of list tilemap with value -1.
@@ -97,6 +102,160 @@ def pathfinding(map_tiles, pos_start, pos_goal) -> list:
     # return the path
     ...
 
+class Vertex:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.is_resolved = False
+        self.parent = None
+        self.cost = math.inf
+        self.neighbours = {}
+        
+    def add_neighbour(self, neighbour):
+        if not (neighbour.x, neighbour.y) in self.neighbours:
+            self.neighbours[(neighbour.x, neighbour.y)] = neighbour
+
+    def assign_parent_and_cost(self, parent, cost):
+        self.parent = parent
+        self.cost = cost
+
+    def mark_resolved(self):
+        self.is_resolved = True
+
+    def get_vertex_coord(self):
+        return (self.x, self.y)
+
+    def __repr__(self):
+        return f"The Vertex. Coord: {self.x}:{self.y}. Current cost: {self.cost}"
+
+class Edge:
+    def __init__(self, start_vertex, end_vertex, weight):
+        self.start_vertex = start_vertex
+        self.end_vertex = end_vertex
+        self.weight = weight
+
+    def get_edge_coord(self):
+        return self.start_vertex.get_vertex_coord() + self.end_vertex.get_vertex_coord()
+
+    def __repr__(self):
+        return f"The Edge. From vertex: {self.start_vertex.x}:{self.start_vertex.y}. \
+                To Vertex: {self.end_vertex.x}:{self.end_vertex.y}"
+
+class Graph:
+    def __init__(self):
+        self.all_edges = {}
+        self.all_vertex = {}
+        self.starting_vertex_coord = None
+
+    @staticmethod
+    def load_map_from_file(file):
+        the_map = []
+        with open(file) as file:
+            for line in file:
+                the_map.append([float(x) for x in line.strip().split()])
+        return the_map
+
+    def load_vertices(self, the_map):
+        the_l_i = len(the_map)
+        the_l_y = len(the_map[0])
+
+        for i in range(the_l_i):
+            for y in range(the_l_y):
+                if the_map[i][y] < 1:
+                    new_vertex = Vertex(i, y)
+                    self.add_vertex(new_vertex)
+
+        for vertex in self.all_vertex.values():
+            vertex_coord = vertex.get_vertex_coord()
+            neighbour_to_south_coord = (vertex_coord[0]-1, vertex_coord[1])
+            neighbour_to_north_coord = (vertex_coord[0]+1, vertex_coord[1])
+            neighbour_to_west_coord = (vertex_coord[0], vertex_coord[1]+1)
+            neighbour_to_east_coord = (vertex_coord[0], vertex_coord[1]-1)
+            if neighbour_to_south_coord  in  self.all_vertex:
+                self.add_edge(Edge(vertex, self.all_vertex[neighbour_to_south_coord], \
+                                   the_map[neighbour_to_south_coord[0]][neighbour_to_south_coord[1]]))
+                vertex.add_neighbour(self.all_vertex[neighbour_to_south_coord])
+            if neighbour_to_north_coord  in  self.all_vertex:
+                self.add_edge(Edge(vertex, self.all_vertex[neighbour_to_north_coord], \
+                                   the_map[neighbour_to_north_coord[0]][neighbour_to_north_coord[1]]))
+                vertex.add_neighbour(self.all_vertex[neighbour_to_north_coord])
+            if neighbour_to_east_coord  in  self.all_vertex:
+                self.add_edge(Edge(vertex, self.all_vertex[neighbour_to_east_coord], \
+                                   the_map[neighbour_to_east_coord[0]][neighbour_to_east_coord[1]]))
+                vertex.add_neighbour(self.all_vertex[neighbour_to_east_coord])
+            if neighbour_to_west_coord  in  self.all_vertex:
+                self.add_edge(Edge(vertex, self.all_vertex[neighbour_to_west_coord], \
+                                   the_map[neighbour_to_west_coord[0]][neighbour_to_west_coord[1]]))
+                vertex.add_neighbour(self.all_vertex[neighbour_to_west_coord])
+
+    def build_network(self):
+        unresolved_verteces = [(vrtx.cost, index, vrtx) for index, vrtx in enumerate(self.all_vertex.values())]
+        heapq.heapify(unresolved_verteces)
+        while len(unresolved_verteces):
+            current = heapq.heappop(unresolved_verteces)[2]
+            current.mark_resolved()
+            for neighbour in current.neighbours.values():
+                if neighbour.is_resolved:
+                    continue
+                new_distance = current.cost + self.get_edge_weight(current, neighbour)
+                if new_distance < neighbour.cost:
+                    neighbour.assign_parent_and_cost(current, new_distance)
+                    # neighbour.cost = new_distance
+                    # neighbour.parent = current
+            heapq.heapify(unresolved_verteces)
+
+    def display_path_to_destination(self, x, y, the_map):
+        end_coord = (x,y)
+        the_map[x][y] = -1
+        while not (path_element_coord := self.all_vertex[end_coord].parent.get_vertex_coord()) == \
+                  self.starting_vertex_coord:
+            the_map[path_element_coord[0]][path_element_coord[1]] = -1
+            end_coord = path_element_coord
+        else:
+            the_map[self.starting_vertex_coord[0]][self.starting_vertex_coord[1]] = -1
+        H = np.array(the_map)
+        plt.imshow(H, interpolation='none')
+        plt.show()
+
+
+    def assign_starting_vertex(self, x, y):
+        if (x,y) in self.all_vertex:
+            self.get_vertex_by_coord(x,y).cost = 0
+            self.starting_vertex_coord = (x, y)
+        else:
+            print(f"Error assigning starting vertex. Check if such vertex exist")
+            exit(1)
+
+    def get_vertex_by_coord(self, x, y):
+        return self.all_vertex[(x,y)]
+
+    def add_edge(self, edge):
+        if not edge.get_edge_coord() in self.all_edges:
+            self.all_edges[edge.start_vertex.get_vertex_coord() + edge.end_vertex.get_vertex_coord()] = edge
+        else:
+            print(f"Attempt to add existent edge.  start:{edge.start_vertex.x}:{edge.start_vertex.y};\
+                    end:{edge.end_vertex.x}:{edge.end_vertex.y}.")
+
+    def add_vertex(self, vertex):
+        if not vertex.get_vertex_coord() in self.all_vertex:
+            self.all_vertex[vertex.get_vertex_coord()] = vertex
+        else:
+            print(f"existent vertexted attempt to add {vertex.x}{vertex.y}")
+            exit(1)
+
+    def get_edge_weight(self, start_vertex, end_vertex):
+        return self.all_edges[start_vertex.get_vertex_coord() +  end_vertex.get_vertex_coord()].weight
+
+
+
+def main2():
+    new_graph = Graph()
+    the_map = Graph.load_map_from_file("../Season2/map.txt")
+    new_graph.load_vertices(the_map)
+    new_graph.assign_starting_vertex(0,0)
+    new_graph.build_network()
+    new_graph.display_path_to_destination(99,99, the_map[:])
+
 
 def main():
     sum_paths = 0
@@ -132,6 +291,6 @@ def main():
     # return the sum of all the path lenghts
     print(sum_paths)
 
-
 if __name__ == '__main__':
-    main()
+    # main()
+    main2()

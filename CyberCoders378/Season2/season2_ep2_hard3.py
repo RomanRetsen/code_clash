@@ -212,21 +212,19 @@ if __name__ == "__main__":
     # print(the_map[22][22])
     # exit(1)
     # using Dijkstra
-    """
-    t1 = time.time()
+    t1 = time()
     the_graph = generate_graph(the_map)
-    find_path_v1_list(the_graph)
-    t0 = time.time()
+    find_path_v2_heap(the_graph)
+    t0 = time()
     print(f"Time needed to find path{t1-t0}")
     print(the_graph.vertex_data[(99, 99)])
     print_graph(the_graph)
-    """
     # using backtracking
-    t1 = time()
-    best_path = find_path(the_map)
-    print(f"Best path value {best_path.value}")
-    print(f"Best path {best_path.bestpath}")
-    print(f"Time taken {time()-t1}")
+    # t1 = time()
+    # best_path = find_path(the_map)
+    # print(f"Best path value {best_path.value}")
+    # print(f"Best path {best_path.bestpath}")
+    # print(f"Time taken {time()-t1}")
 
 '''
 10 - 1.27
